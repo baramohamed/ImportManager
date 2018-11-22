@@ -1,0 +1,318 @@
+﻿<UserControl x:Class="ImportManager.View.ParametresAvancesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignWidth="800">
+    <StackPanel>
+        <Grid>
+            <TextBlock Text="Devises"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteDevise}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddDevise}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name="devises" 
+                  ItemsSource="{Binding Devises}"
+                  SelectedItem="{Binding SelectedDevise}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid>
+            <TextBlock Text="Pays"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeletePays}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddPays}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        
+        <DataGrid ItemsSource="{Binding Pays}"
+                  SelectedItem="{Binding SelectedPays}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+                <DataGridTemplateColumn Header="Devise">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Devises}"
+                                      SelectedItem="{Binding Devise}"
+                                      Style="{StaticResource DataGridComboBoxStyle}"
+                                      DisplayMemberPath="Designation"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Grid>
+            <TextBlock Text="Ports"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeletePort}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddPort}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding Ports}"
+                  SelectedItem="{Binding SelectedPort}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Wilayas"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteWilaya}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddWilaya}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding Wilayas}"
+                  SelectedItem="{Binding SelectedWilaya}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Recettes Impôts"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteRecette}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddRecette}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding RecettesImpots}"
+                  SelectedItem="{Binding SelectedRecette}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+                <DataGridTemplateColumn Header="Wilaya" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding Wilayas}"
+                                      SelectedItem="{Binding Wilaya,UpdateSourceTrigger=LostFocus}"
+                                      Style="{StaticResource DataGridComboBoxStyle}"
+                                      DisplayMemberPath="Designation"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Incoterms"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteIncoterm}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddIncoterm}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding Incoterms}"
+                  SelectedItem="{Binding SelectedIncoterm}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Statuts Juridiques"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteStatut}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddStatut}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding StatutsJuridiques}"
+                  SelectedItem="{Binding SelectedStatut}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Types Entreprises"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteTypeEntreprise}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddTypeEntreprise}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid ItemsSource="{Binding TypesEntreprises}"
+                  SelectedItem="{Binding SelectedTypeEntreprise}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid>
+            <TextBlock Text="Modes Règlements"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteModeReglement}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddModeReglement}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding ModesReglement}"
+                  SelectedItem="{Binding SelectedModeReglement}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Grid>
+            <TextBlock Text="Unités de Quantités Normalisées"
+                   Style="{StaticResource Title1}"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="{StaticResource CloseIcon}"
+                        Command="{Binding DeleteUQN}"
+                        Style="{StaticResource IconButton}"/>
+                <Button Content="{StaticResource PlusIcon}"
+                        Command="{Binding AddUQN}"
+                        Style="{StaticResource IconButton}"/>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding UQNs}"
+                  SelectedItem="{Binding SelectedUQN}"
+                  ColumnWidth="150"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  AutoGenerateColumns="False"
+                  Margin="10"
+                  Height="250">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code"
+                                    Binding="{Binding Code}"/>
+                <DataGridTextColumn Header="Désignation"
+                                    Binding="{Binding Designation}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Click="Button_Click"
+                Content="Initialisation"
+                HorizontalAlignment="Right"/>
+    </StackPanel>
+</UserControl>

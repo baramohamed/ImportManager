@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="ImportManager.View.EcheancesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImportManager.View"
+             xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <DatePicker MaterialDesign:HintAssist.Hint="Date début"/>
+            <DatePicker MaterialDesign:HintAssist.Hint="Date fin"/>
+            <ComboBox MaterialDesign:HintAssist.Hint="Importateur"/>
+            <ComboBox MaterialDesign:HintAssist.Hint="Bénéficiaire"/>
+            <ComboBox MaterialDesign:HintAssist.Hint="Etat"/>
+        </StackPanel>
+        <DataGrid ColumnWidth="120">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°"/>
+                <DataGridTextColumn Header="Désigntion"/>
+                <DataGridTextColumn Header="Bénéficiaire"/>
+                <DataGridTextColumn Header="Montant"/>
+                <DataGridTemplateColumn Header="Date Echéance">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Etat"/>
+                <DataGridTextColumn Header="Réglé (%)"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{StaticResource SettingsIcon}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

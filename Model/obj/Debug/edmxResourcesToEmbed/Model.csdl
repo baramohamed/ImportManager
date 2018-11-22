@@ -1,0 +1,1341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Importations" EntityType="Model.Importation" />
+    <EntitySet Name="Entreprises" EntityType="Model.Entreprise" />
+    <EntitySet Name="Factures" EntityType="Model.Facture" />
+    <EntitySet Name="LigneFactures" EntityType="Model.LigneFacture" />
+    <EntitySet Name="Personnes" EntityType="Model.Personne" />
+    <EntitySet Name="Ports" EntityType="Model.Port" />
+    <EntitySet Name="AgenceBanques" EntityType="Model.AgenceBanque" />
+    <AssociationSet Name="ImportationFactureProforma" Association="Model.ImportationFactureProforma">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="FactureProforma" EntitySet="Factures" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationFactureDefinitive" Association="Model.ImportationFactureDefinitive">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+    </AssociationSet>
+    <AssociationSet Name="AssocationASupprimer1" Association="Model.AssocationASupprimer1">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Banque" EntitySet="Entreprises" />
+    </AssociationSet>
+    <EntitySet Name="Catalogues" EntityType="Model.Catalogue" />
+    <EntitySet Name="Articles" EntityType="Model.Article" />
+    <AssociationSet Name="LigneFactureArticle" Association="Model.LigneFactureArticle">
+      <End Role="LigneFacture" EntitySet="LigneFactures" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueArticle" Association="Model.CatalogueArticle">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="AssociationASupprimer2" Association="Model.AssociationASupprimer2">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Banque" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="BanqueAgence" Association="Model.BanqueAgence">
+      <End Role="Banque" EntitySet="Entreprises" />
+      <End Role="AgenceBanque" EntitySet="AgenceBanques" />
+    </AssociationSet>
+    <AssociationSet Name="FactureProformaPortEmbarquement" Association="Model.FactureProformaPortEmbarquement">
+      <End Role="FactureProforma" EntitySet="Factures" />
+      <End Role="Port" EntitySet="Ports" />
+    </AssociationSet>
+    <AssociationSet Name="FactureProformaPortDebarquement" Association="Model.FactureProformaPortDebarquement">
+      <End Role="FactureProforma" EntitySet="Factures" />
+      <End Role="Port" EntitySet="Ports" />
+    </AssociationSet>
+    <EntitySet Name="Sections" EntityType="Model.Section" />
+    <EntitySet Name="Chapitres" EntityType="Model.Chapitre" />
+    <EntitySet Name="Positions" EntityType="Model.Position" />
+    <EntitySet Name="SousPositions" EntityType="Model.SousPosition" />
+    <AssociationSet Name="SectionChapitre" Association="Model.SectionChapitre">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Chapitre" EntitySet="Chapitres" />
+    </AssociationSet>
+    <EntitySet Name="Adresses" EntityType="Model.Adresse" />
+    <EntitySet Name="Wilayas" EntityType="Model.Wilaya" />
+    <AssociationSet Name="AdresseLocaleWilaya" Association="Model.AdresseLocaleWilaya">
+      <End Role="AdresseLocale" EntitySet="Adresses" />
+      <End Role="Wilaya" EntitySet="Wilayas" />
+    </AssociationSet>
+    <AssociationSet Name="EntrepriseAdresse1" Association="Model.EntrepriseAdresse1">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="Adresse" EntitySet="Adresses" />
+    </AssociationSet>
+    <AssociationSet Name="EntrepriseAdresse2" Association="Model.EntrepriseAdresse2">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="Adresse" EntitySet="Adresses" />
+    </AssociationSet>
+    <AssociationSet Name="FactureTransitFactureNonDeclaree" Association="Model.FactureTransitFactureNonDeclaree">
+      <End Role="FactureTransit" EntitySet="Factures" />
+      <End Role="FactureNonDeclaree" EntitySet="Factures" />
+    </AssociationSet>
+    <EntitySet Name="TaxeDouaniers" EntityType="Model.TaxeDouanier" />
+    <AssociationSet Name="FactureTransitFrais" Association="Model.FactureTransitFrais">
+      <End Role="FactureTransit" EntitySet="Factures" />
+      <End Role="FactureDeclaree" EntitySet="Factures" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationD10" Association="Model.ImportationD10">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="D10" EntitySet="TaxeDouaniers" />
+    </AssociationSet>
+    <AssociationSet Name="FactureDefinitivePortEmbarquement" Association="Model.FactureDefinitivePortEmbarquement">
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+      <End Role="Port" EntitySet="Ports" />
+    </AssociationSet>
+    <AssociationSet Name="FactureDefinitivePortDebarquement" Association="Model.FactureDefinitivePortDebarquement">
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+      <End Role="Port" EntitySet="Ports" />
+    </AssociationSet>
+    <AssociationSet Name="ChapitrePosition" Association="Model.ChapitrePosition">
+      <End Role="Chapitre" EntitySet="Chapitres" />
+      <End Role="Position" EntitySet="Positions" />
+    </AssociationSet>
+    <AssociationSet Name="PositionSousPosition" Association="Model.PositionSousPosition">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="SousPosition" EntitySet="SousPositions" />
+    </AssociationSet>
+    <EntitySet Name="Connaissements" EntityType="Model.Connaissement" />
+    <EntitySet Name="Fichiers" EntityType="Model.Fichier" />
+    <EntitySet Name="Conteneurs" EntityType="Model.Conteneur" />
+    <AssociationSet Name="ConnaissementConteneur" Association="Model.ConnaissementConteneur">
+      <End Role="Connaissement" EntitySet="Connaissements" />
+      <End Role="Conteneur" EntitySet="Conteneurs" />
+    </AssociationSet>
+    <AssociationSet Name="ConnaissementCompagnieMaritime" Association="Model.ConnaissementCompagnieMaritime">
+      <End Role="Connaissement" EntitySet="Connaissements" />
+      <End Role="CompagnieMaritime" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="ConnaissementFichierJoint" Association="Model.ConnaissementFichierJoint">
+      <End Role="Connaissement" EntitySet="Connaissements" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="FactureFichier" Association="Model.FactureFichier">
+      <End Role="Facture" EntitySet="Factures" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="D10Fichier" Association="Model.D10Fichier">
+      <End Role="D10" EntitySet="TaxeDouaniers" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="EntrepriseLogo" Association="Model.EntrepriseLogo">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="ImportateurCatalogue" Association="Model.ImportateurCatalogue">
+      <End Role="Importateur" EntitySet="Entreprises" />
+      <End Role="Catalogue" EntitySet="Catalogues" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationFrais" Association="Model.ImportationFrais">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="FactureFrais" EntitySet="Factures" />
+    </AssociationSet>
+    <EntitySet Name="ReferenceFournisseurs" EntityType="Model.ReferenceFournisseur" />
+    <AssociationSet Name="FournisseurReferenceFournisseur" Association="Model.FournisseurReferenceFournisseur">
+      <End Role="Fournisseur" EntitySet="Entreprises" />
+      <End Role="ReferenceFournisseur" EntitySet="ReferenceFournisseurs" />
+    </AssociationSet>
+    <AssociationSet Name="ReferenceFournisseurArticle" Association="Model.ReferenceFournisseurArticle">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="ReferenceFournisseur" EntitySet="ReferenceFournisseurs" />
+    </AssociationSet>
+    <EntitySet Name="Pays" EntityType="Model.Pays" />
+    <AssociationSet Name="PaysAdresse" Association="Model.PaysAdresse">
+      <End Role="Pays" EntitySet="Pays" />
+      <End Role="Adresse" EntitySet="Adresses" />
+    </AssociationSet>
+    <EntitySet Name="TypesConteneurs" EntityType="Model.TypeConteneur" />
+    <AssociationSet Name="ConteneurTypeConteneur" Association="Model.ConteneurTypeConteneur">
+      <End Role="Conteneur" EntitySet="Conteneurs" />
+      <End Role="TypeConteneur" EntitySet="TypesConteneurs" />
+    </AssociationSet>
+    <EntitySet Name="ModesReglement" EntityType="Model.ModeReglement" />
+    <EntitySet Name="TypesEntreprises" EntityType="Model.TypeEntreprise" />
+    <AssociationSet Name="RaisonSocialeEntreprise" Association="Model.RaisonSocialeEntreprise">
+      <End Role="RaisonSociale" EntitySet="TypesEntreprises" />
+      <End Role="Entreprise" EntitySet="Entreprises" />
+    </AssociationSet>
+    <EntitySet Name="StatutsJuridiques" EntityType="Model.StatutJuridique" />
+    <AssociationSet Name="StatutJuridiqueEntreprise" Association="Model.StatutJuridiqueEntreprise">
+      <End Role="StatutJuridique" EntitySet="StatutsJuridiques" />
+      <End Role="Entreprise" EntitySet="Entreprises" />
+    </AssociationSet>
+    <EntitySet Name="Devises" EntityType="Model.Devise" />
+    <AssociationSet Name="PaysDevise" Association="Model.PaysDevise">
+      <End Role="Pays" EntitySet="Pays" />
+      <End Role="Devise" EntitySet="Devises" />
+    </AssociationSet>
+    <EntitySet Name="MotifFactures" EntityType="Model.MotifFacture" />
+    <AssociationSet Name="FactureFraisMotif" Association="Model.FactureFraisMotif">
+      <End Role="FactureFrais" EntitySet="Factures" />
+      <End Role="MotifFacture" EntitySet="MotifFactures" />
+    </AssociationSet>
+    <AssociationSet Name="PortPays" Association="Model.PortPays">
+      <End Role="Port" EntitySet="Ports" />
+      <End Role="Pays" EntitySet="Pays" />
+    </AssociationSet>
+    <EntitySet Name="UQNs" EntityType="Model.UQN" />
+    <AssociationSet Name="SousPositionUQN" Association="Model.SousPositionUQN">
+      <End Role="SousPosition" EntitySet="SousPositions" />
+      <End Role="UQN" EntitySet="UQNs" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationBanqueImportateur" Association="Model.ImportationBanqueImportateur">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="AgenceBanque" EntitySet="AgenceBanques" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationBanqueFournisseur" Association="Model.ImportationBanqueFournisseur">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="AgenceBanque" EntitySet="AgenceBanques" />
+    </AssociationSet>
+    <EntitySet Name="Activites" EntityType="Model.Activite" />
+    <AssociationSet Name="ImportateurActivite" Association="Model.ImportateurActivite">
+      <End Role="Importateur" EntitySet="Entreprises" />
+      <End Role="Activite" EntitySet="Activites" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationActivite" Association="Model.ImportationActivite">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Activite" EntitySet="Activites" />
+    </AssociationSet>
+    <EntitySet Name="Produits" EntityType="Model.Produit" />
+    <EntitySet Name="Attributs" EntityType="Model.Attribut" />
+    <EntitySet Name="Valeurs" EntityType="Model.Valeur" />
+    <AssociationSet Name="PositionProduit" Association="Model.PositionProduit">
+      <End Role="Produit" EntitySet="Produits" />
+      <End Role="SousPosition" EntitySet="SousPositions" />
+    </AssociationSet>
+    <AssociationSet Name="AttributsProduit" Association="Model.AttributsProduit">
+      <End Role="Produit" EntitySet="Produits" />
+      <End Role="Attribut" EntitySet="Attributs" />
+    </AssociationSet>
+    <AssociationSet Name="ArticleProduit" Association="Model.ArticleProduit">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Produit" EntitySet="Produits" />
+    </AssociationSet>
+    <AssociationSet Name="ValeursAttribut" Association="Model.ValeursAttribut">
+      <End Role="Valeur" EntitySet="Valeurs" />
+      <End Role="Attribut" EntitySet="Attributs" />
+    </AssociationSet>
+    <AssociationSet Name="ArticleValeur" Association="Model.ArticleValeur">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Valeur" EntitySet="Valeurs" />
+    </AssociationSet>
+    <AssociationSet Name="ContactEntreprise" Association="Model.ContactEntreprise">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="Personne" EntitySet="Personnes" />
+    </AssociationSet>
+    <EntitySet Name="LigneCommandes" EntityType="Model.LigneCommande" />
+    <AssociationSet Name="ArticleLigneCommande" Association="Model.ArticleLigneCommande">
+      <End Role="LigneCommande" EntitySet="LigneCommandes" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="CommandeLigneCommande" Association="Model.CommandeLigneCommande">
+      <End Role="Commande" EntitySet="Factures" />
+      <End Role="LigneCommande" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="LigneFactureFournisseur" Association="Model.LigneFactureFournisseur">
+      <End Role="FactureFournisseur" EntitySet="Factures" />
+      <End Role="LigneFacture" EntitySet="LigneFactures" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationFactureTransit" Association="Model.ImportationFactureTransit">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="FactureTransit" EntitySet="Factures" />
+    </AssociationSet>
+    <EntitySet Name="Paiements" EntityType="Model.Paiement" />
+    <AssociationSet Name="PaiementModeReglement" Association="Model.PaiementModeReglement">
+      <End Role="Paiement" EntitySet="Paiements" />
+      <End Role="ModeReglement" EntitySet="ModesReglement" />
+    </AssociationSet>
+    <AssociationSet Name="PaiementDevise" Association="Model.PaiementDevise">
+      <End Role="Paiement" EntitySet="Paiements" />
+      <End Role="Devise" EntitySet="Devises" />
+    </AssociationSet>
+    <EntitySet Name="Echeances" EntityType="Model.Echeance" />
+    <EntitySet Name="TypeEcheances" EntityType="Model.TypeEcheance" />
+    <AssociationSet Name="EcheanceTypeEcheance" Association="Model.EcheanceTypeEcheance">
+      <End Role="Echeance" EntitySet="Echeances" />
+      <End Role="TypeEcheance" EntitySet="TypeEcheances" />
+    </AssociationSet>
+    <AssociationSet Name="EcheancePaiement" Association="Model.EcheancePaiement">
+      <End Role="Echeance" EntitySet="Echeances" />
+      <End Role="Paiement" EntitySet="Paiements" />
+    </AssociationSet>
+    <AssociationSet Name="FacturePaiement" Association="Model.FacturePaiement">
+      <End Role="Facture" EntitySet="Factures" />
+      <End Role="Paiement" EntitySet="Paiements" />
+    </AssociationSet>
+    <AssociationSet Name="FactureEcheance" Association="Model.FactureEcheance">
+      <End Role="Facture" EntitySet="Factures" />
+      <End Role="Echeance" EntitySet="Echeances" />
+    </AssociationSet>
+    <AssociationSet Name="PaiementFichier" Association="Model.PaiementFichier">
+      <End Role="Paiement" EntitySet="Paiements" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="TaxeDouanierPaiement" Association="Model.TaxeDouanierPaiement">
+      <End Role="TaxeDouanier" EntitySet="TaxeDouaniers" />
+      <End Role="Paiement" EntitySet="Paiements" />
+    </AssociationSet>
+    <EntitySet Name="Utilisateurs" EntityType="Model.Utilisateur" />
+    <AssociationSet Name="ImportationCommande" Association="Model.ImportationCommande">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Commande" EntitySet="Factures" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationOffre" Association="Model.ImportationOffre">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Offre" EntitySet="Factures" />
+    </AssociationSet>
+    <AssociationSet Name="CatalogueProduit" Association="Model.CatalogueProduit">
+      <End Role="Catalogue" EntitySet="Catalogues" />
+      <End Role="Produit" EntitySet="Produits" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationPaysOrigine" Association="Model.ImportationPaysOrigine">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Pays" EntitySet="Pays" />
+    </AssociationSet>
+    <AssociationSet Name="FactureProformaModeReglement" Association="Model.FactureProformaModeReglement">
+      <End Role="FactureProforma" EntitySet="Factures" />
+      <End Role="ModeReglement" EntitySet="ModesReglement" />
+    </AssociationSet>
+    <AssociationSet Name="FactureProformaDevise" Association="Model.FactureProformaDevise">
+      <End Role="FactureProforma" EntitySet="Factures" />
+      <End Role="Devise" EntitySet="Devises" />
+    </AssociationSet>
+    <EntitySet Name="Financements" EntityType="Model.Financement" />
+    <AssociationSet Name="ImportationFinancement" Association="Model.ImportationFinancement">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Financement" EntitySet="Financements" />
+    </AssociationSet>
+    <EntitySet Name="DestinationProduits" EntityType="Model.DestinationProduit" />
+    <AssociationSet Name="ImportationDestinationProduit" Association="Model.ImportationDestinationProduit">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="DestinationProduit" EntitySet="DestinationProduits" />
+    </AssociationSet>
+    <EntitySet Name="RecetteImpots" EntityType="Model.RecetteImpots" />
+    <AssociationSet Name="WilayaRecetteImpots" Association="Model.WilayaRecetteImpots">
+      <End Role="Wilaya" EntitySet="Wilayas" />
+      <End Role="RecetteImpots" EntitySet="RecetteImpots" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationRecetteImpots" Association="Model.ImportationRecetteImpots">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="RecetteImpots" EntitySet="RecetteImpots" />
+    </AssociationSet>
+    <AssociationSet Name="FactureDefinitiveModeReglement" Association="Model.FactureDefinitiveModeReglement">
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+      <End Role="ModeReglement" EntitySet="ModesReglement" />
+    </AssociationSet>
+    <AssociationSet Name="FactureDefinitiveDevise" Association="Model.FactureDefinitiveDevise">
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+      <End Role="Devise" EntitySet="Devises" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationImportateur" Association="Model.ImportationImportateur">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Importateur" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationFournisseur" Association="Model.ImportationFournisseur">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Fournisseur" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationTransit" Association="Model.ImportationTransit">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Transit" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="EntrepriseMotifFacture" Association="Model.EntrepriseMotifFacture">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="MotifFacture" EntitySet="MotifFactures" />
+    </AssociationSet>
+    <AssociationSet Name="FactureFraisEntreprise" Association="Model.FactureFraisEntreprise">
+      <End Role="FactureFrais" EntitySet="Factures" />
+      <End Role="Entreprise" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationArrivage" Association="Model.ImportationArrivage">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="LigneCommande" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <EntitySet Name="Documents" EntityType="Model.Document" />
+    <AssociationSet Name="DocumentFichier" Association="Model.DocumentFichier">
+      <End Role="Document" EntitySet="Documents" />
+      <End Role="Fichier" EntitySet="Fichiers" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationCertificatDeConformite" Association="Model.ImportationCertificatDeConformite">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="CertificatDOrigine" Association="Model.CertificatDOrigine">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationListeDeColissage" Association="Model.ImportationListeDeColissage">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="ImportationConnaissement" Association="Model.ImportationConnaissement">
+      <End Role="Importation" EntitySet="Importations" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <EntitySet Name="ComptesBancaires" EntityType="Model.CompteBancaire" />
+    <AssociationSet Name="EntrepriseCompteBancaire" Association="Model.EntrepriseCompteBancaire">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="CompteBancaire" EntitySet="ComptesBancaires" />
+    </AssociationSet>
+    <AssociationSet Name="BanqueCompteBancaire" Association="Model.BanqueCompteBancaire">
+      <End Role="CompteBancaire" EntitySet="ComptesBancaires" />
+      <End Role="Banque" EntitySet="Entreprises" />
+    </AssociationSet>
+    <AssociationSet Name="EntrepriseGerant" Association="Model.EntrepriseGerant">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="Personne" EntitySet="Personnes" />
+    </AssociationSet>
+    <AssociationSet Name="PersonneAdresse" Association="Model.PersonneAdresse">
+      <End Role="Personne" EntitySet="Personnes" />
+      <End Role="Adresse" EntitySet="Adresses" />
+    </AssociationSet>
+    <EntitySet Name="TypesActivites" EntityType="Model.TypeActivite" />
+    <AssociationSet Name="EntrepriseTypeActivite" Association="Model.EntrepriseTypeActivite">
+      <End Role="Entreprise" EntitySet="Entreprises" />
+      <End Role="TypeActivite" EntitySet="TypesActivites" />
+    </AssociationSet>
+    <EntitySet Name="Incoterms" EntityType="Model.Incoterm" />
+    <AssociationSet Name="FactureDefinitiveIncoterm" Association="Model.FactureDefinitiveIncoterm">
+      <End Role="FactureDefinitive" EntitySet="Factures" />
+      <End Role="Incoterm" EntitySet="Incoterms" />
+    </AssociationSet>
+    <AssociationSet Name="FactureProformaIncoterm" Association="Model.FactureProformaIncoterm">
+      <End Role="FactureProforma" EntitySet="Factures" />
+      <End Role="Incoterm" EntitySet="Incoterms" />
+    </AssociationSet>
+    <AssociationSet Name="AttributPereFils" Association="Model.AttributPereFils">
+      <End Role="Attribut" EntitySet="Attributs" />
+      <End Role="Attribut1" EntitySet="Attributs" />
+    </AssociationSet>
+    <AssociationSet Name="ValeurPereFils" Association="Model.ValeurPereFils">
+      <End Role="Valeur" EntitySet="Valeurs" />
+      <End Role="Valeur1" EntitySet="Valeurs" />
+    </AssociationSet>
+    <EntitySet Name="Packagings" EntityType="Model.Packaging" />
+    <AssociationSet Name="ArticlePackaging" Association="Model.ArticlePackaging">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Packaging" EntitySet="Packagings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Importation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreation" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Importateur" Relationship="Model.ImportationImportateur" FromRole="Importation" ToRole="Importateur" />
+    <NavigationProperty Name="Fournisseur" Relationship="Model.ImportationFournisseur" FromRole="Importation" ToRole="Fournisseur" />
+    <NavigationProperty Name="FactureProforma" Relationship="Model.ImportationFactureProforma" FromRole="Importation" ToRole="FactureProforma" />
+    <NavigationProperty Name="FactureDefinitive" Relationship="Model.ImportationFactureDefinitive" FromRole="Importation" ToRole="FactureDefinitive" />
+    <NavigationProperty Name="D10" Relationship="Model.ImportationD10" FromRole="Importation" ToRole="D10" />
+    <Property Name="DateDebarquement" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="FraisDivers" Relationship="Model.ImportationFrais" FromRole="Importation" ToRole="FactureFrais" />
+    <NavigationProperty Name="BanqueImportateur" Relationship="Model.ImportationBanqueImportateur" FromRole="Importation" ToRole="AgenceBanque" />
+    <NavigationProperty Name="BanqueFournisseur" Relationship="Model.ImportationBanqueFournisseur" FromRole="Importation" ToRole="AgenceBanque" />
+    <NavigationProperty Name="Activite" Relationship="Model.ImportationActivite" FromRole="Importation" ToRole="Activite" />
+    <Property Name="DateNegociation" Type="DateTime" Nullable="true" />
+    <Property Name="DateDomiciliation" Type="DateTime" Nullable="true" />
+    <Property Name="DateDedouanement" Type="DateTime" Nullable="true" />
+    <Property Name="DateCloturation" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="FactureTransit" Relationship="Model.ImportationFactureTransit" FromRole="Importation" ToRole="FactureTransit" />
+    <NavigationProperty Name="Commande" Relationship="Model.ImportationCommande" FromRole="Importation" ToRole="Commande" />
+    <NavigationProperty Name="Offres" Relationship="Model.ImportationOffre" FromRole="Importation" ToRole="Offre" />
+    <NavigationProperty Name="PaysOrigine" Relationship="Model.ImportationPaysOrigine" FromRole="Importation" ToRole="Pays" />
+    <NavigationProperty Name="Financements" Relationship="Model.ImportationFinancement" FromRole="Importation" ToRole="Financement" />
+    <NavigationProperty Name="DestinationProduit" Relationship="Model.ImportationDestinationProduit" FromRole="Importation" ToRole="DestinationProduit" />
+    <NavigationProperty Name="RecetteImpots" Relationship="Model.ImportationRecetteImpots" FromRole="Importation" ToRole="RecetteImpots" />
+    <Property Name="DateArrivee" Type="DateTime" Nullable="true" />
+    <Property Name="CoursDomiciliation" Type="Double" Nullable="true" />
+    <Property Name="CoursDedouanement" Type="Double" Nullable="true" />
+    <Property Name="CoursAchat" Type="Double" Nullable="true" />
+    <NavigationProperty Name="Transit" Relationship="Model.ImportationTransit" FromRole="Importation" ToRole="Transit" />
+    <NavigationProperty Name="Arrivage" Relationship="Model.ImportationArrivage" FromRole="Importation" ToRole="LigneCommande" />
+    <NavigationProperty Name="Connaissement" Relationship="Model.ImportationConnaissement" FromRole="Importation" ToRole="Document" />
+    <NavigationProperty Name="CertificatDeConformite" Relationship="Model.ImportationCertificatDeConformite" FromRole="Importation" ToRole="Document" />
+    <NavigationProperty Name="CertificatDOrigine" Relationship="Model.CertificatDOrigine" FromRole="Importation" ToRole="Document" />
+    <NavigationProperty Name="ListeDeColissage" Relationship="Model.ImportationListeDeColissage" FromRole="Importation" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="Entreprise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegistreCommerce" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Denomination" Type="String" Nullable="true" />
+    <Property Name="DenominationAR" Type="String" Nullable="true" />
+    <Property Name="Capital" Type="Double" Nullable="true" />
+    <Property Name="NumArticle" Type="String" Nullable="true" />
+    <Property Name="NIF" Type="String" Nullable="true" />
+    <Property Name="NIS" Type="String" Nullable="true" />
+    <Property Name="Tel" Type="String" Nullable="true" />
+    <Property Name="Fax" Type="String" Nullable="true" />
+    <Property Name="EMail" Type="String" Nullable="true" />
+    <Property Name="SiteWeb" Type="String" Nullable="true" />
+    <NavigationProperty Name="Adresse1" Relationship="Model.EntrepriseAdresse1" FromRole="Entreprise" ToRole="Adresse" />
+    <NavigationProperty Name="Adresse2" Relationship="Model.EntrepriseAdresse2" FromRole="Entreprise" ToRole="Adresse" />
+    <NavigationProperty Name="Logo" Relationship="Model.EntrepriseLogo" FromRole="Entreprise" ToRole="Fichier" />
+    <NavigationProperty Name="Type" Relationship="Model.RaisonSocialeEntreprise" FromRole="Entreprise" ToRole="RaisonSociale" />
+    <NavigationProperty Name="StatutJuridique" Relationship="Model.StatutJuridiqueEntreprise" FromRole="Entreprise" ToRole="StatutJuridique" />
+    <NavigationProperty Name="Contact" Relationship="Model.ContactEntreprise" FromRole="Entreprise" ToRole="Personne" />
+    <NavigationProperty Name="Motifs" Relationship="Model.EntrepriseMotifFacture" FromRole="Entreprise" ToRole="MotifFacture" />
+    <NavigationProperty Name="ComptesBancaires" Relationship="Model.EntrepriseCompteBancaire" FromRole="Entreprise" ToRole="CompteBancaire" />
+    <NavigationProperty Name="Gerant" Relationship="Model.EntrepriseGerant" FromRole="Entreprise" ToRole="Personne" />
+    <NavigationProperty Name="TypeActivite" Relationship="Model.EntrepriseTypeActivite" FromRole="Entreprise" ToRole="TypeActivite" />
+  </EntityType>
+  <EntityType Name="Facture" Abstract="true">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumFacture" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Date" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="FichiersJoints" Relationship="Model.FactureFichier" FromRole="Facture" ToRole="Fichier" />
+    <NavigationProperty Name="Paiement" Relationship="Model.FacturePaiement" FromRole="Facture" ToRole="Paiement" />
+    <NavigationProperty Name="Echeance" Relationship="Model.FactureEcheance" FromRole="Facture" ToRole="Echeance" />
+  </EntityType>
+  <EntityType Name="LigneFacture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Article" Relationship="Model.LigneFactureArticle" FromRole="LigneFacture" ToRole="Article" />
+    <Property Name="PoidsUnitaire" Type="Double" Nullable="true" />
+    <Property Name="PrixUnitaire" Type="Double" Nullable="true" />
+    <Property Name="Quantite" Type="Int32" Nullable="true" />
+    <Property Name="VolumeUnitaire" Type="Double" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Personne">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="true" />
+    <Property Name="Prenom" Type="String" Nullable="true" />
+    <Property Name="Titre" Type="Model.Titre" Nullable="true" />
+    <Property Name="Fonction" Type="String" Nullable="true" />
+    <Property Name="Tel" Type="String" Nullable="true" />
+    <Property Name="EMail" Type="String" Nullable="true" />
+    <NavigationProperty Name="Entreprise" Relationship="Model.ContactEntreprise" FromRole="Personne" ToRole="Entreprise" />
+    <Property Name="NIS" Type="String" Nullable="true" />
+    <Property Name="NIF" Type="String" Nullable="true" />
+    <NavigationProperty Name="Adresse" Relationship="Model.PersonneAdresse" FromRole="Personne" ToRole="Adresse" />
+  </EntityType>
+  <EntityType Name="FactureFrais" BaseType="Model.Facture">
+    <Property Name="Montant" Type="Double" Nullable="true" />
+    <NavigationProperty Name="Motif" Relationship="Model.FactureFraisMotif" FromRole="FactureFrais" ToRole="MotifFacture" />
+    <NavigationProperty Name="Beneficiaire" Relationship="Model.FactureFraisEntreprise" FromRole="FactureFrais" ToRole="Entreprise" />
+    <Property Name="Remarque" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Port">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Pays" Relationship="Model.PortPays" FromRole="Port" ToRole="Pays" />
+    <Property Name="Code" Type="String" Nullable="true" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AgenceBanque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <NavigationProperty Name="Banque" Relationship="Model.BanqueAgence" FromRole="AgenceBanque" ToRole="Banque" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Banque" BaseType="Model.Entreprise">
+    <NavigationProperty Name="Agences" Relationship="Model.BanqueAgence" FromRole="Banque" ToRole="AgenceBanque" />
+  </EntityType>
+  <EntityType Name="Transit" BaseType="Model.Entreprise" />
+  <EntityType Name="Fournisseur" BaseType="Model.Entreprise" />
+  <EntityType Name="FactureProforma" BaseType="Model.FactureFournisseur">
+    <NavigationProperty Name="Importation" Relationship="Model.ImportationFactureProforma" FromRole="FactureProforma" ToRole="Importation" />
+    <NavigationProperty Name="PortEmbarquement" Relationship="Model.FactureProformaPortEmbarquement" FromRole="FactureProforma" ToRole="Port" />
+    <NavigationProperty Name="PortDebarquement" Relationship="Model.FactureProformaPortDebarquement" FromRole="FactureProforma" ToRole="Port" />
+    <Property Name="DateEmbarquement" Type="DateTime" Nullable="true" />
+    <Property Name="DateDebarquement" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="ModeReglement" Relationship="Model.FactureProformaModeReglement" FromRole="FactureProforma" ToRole="ModeReglement" />
+    <NavigationProperty Name="Devise" Relationship="Model.FactureProformaDevise" FromRole="FactureProforma" ToRole="Devise" />
+    <Property Name="NPredomiciliation" Type="String" Nullable="true" />
+    <Property Name="DatePredomiciliation" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Incoterm" Relationship="Model.FactureProformaIncoterm" FromRole="FactureProforma" ToRole="Incoterm" />
+  </EntityType>
+  <EntityType Name="FactureDefinitive" BaseType="Model.FactureFournisseur">
+    <Property Name="NumDomiciliation" Type="String" Nullable="true" />
+    <Property Name="DateDomiciliation" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Importation" Relationship="Model.ImportationFactureDefinitive" FromRole="FactureDefinitive" ToRole="Importation" />
+    <Property Name="DateEmbarquement" Type="DateTime" Nullable="true" />
+    <Property Name="DateDebarquement" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="PortEmbarquement" Relationship="Model.FactureDefinitivePortEmbarquement" FromRole="FactureDefinitive" ToRole="Port" />
+    <NavigationProperty Name="PortDebarquement" Relationship="Model.FactureDefinitivePortDebarquement" FromRole="FactureDefinitive" ToRole="Port" />
+    <NavigationProperty Name="ModeReglement" Relationship="Model.FactureDefinitiveModeReglement" FromRole="FactureDefinitive" ToRole="ModeReglement" />
+    <NavigationProperty Name="Devise" Relationship="Model.FactureDefinitiveDevise" FromRole="FactureDefinitive" ToRole="Devise" />
+    <NavigationProperty Name="Incoterm" Relationship="Model.FactureDefinitiveIncoterm" FromRole="FactureDefinitive" ToRole="Incoterm" />
+  </EntityType>
+  <EntityType Name="Commande" BaseType="Model.Facture">
+    <NavigationProperty Name="LignesCommande" Relationship="Model.CommandeLigneCommande" FromRole="Commande" ToRole="LigneCommande" />
+  </EntityType>
+  <EntityType Name="Offre" BaseType="Model.FactureFournisseur" />
+  <Association Name="ImportationFactureProforma">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationFactureDefinitive">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="0..1" />
+  </Association>
+  <Association Name="AssocationASupprimer1">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Banque" Role="Banque" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Catalogue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Articles" Relationship="Model.CatalogueArticle" FromRole="Catalogue" ToRole="Article" />
+    <NavigationProperty Name="Importateur" Relationship="Model.ImportateurCatalogue" FromRole="Catalogue" ToRole="Importateur" />
+    <NavigationProperty Name="Produits" Relationship="Model.CatalogueProduit" FromRole="Catalogue" ToRole="Produit" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Reference" Type="String" Nullable="true" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <Property Name="OEM" Type="String" Nullable="true" />
+    <NavigationProperty Name="Catalogue" Relationship="Model.CatalogueArticle" FromRole="Article" ToRole="Catalogue" />
+    <NavigationProperty Name="ReferencesFournisseurs" Relationship="Model.ReferenceFournisseurArticle" FromRole="Article" ToRole="ReferenceFournisseur" />
+    <NavigationProperty Name="Produit" Relationship="Model.ArticleProduit" FromRole="Article" ToRole="Produit" />
+    <NavigationProperty Name="ValeursAttributs" Relationship="Model.ArticleValeur" FromRole="Article" ToRole="Valeur" />
+    <Property Name="PoidsNet" Type="Decimal" Nullable="true" />
+    <Property Name="Volume" Type="Decimal" Nullable="true" />
+    <NavigationProperty Name="Packaging" Relationship="Model.ArticlePackaging" FromRole="Article" ToRole="Packaging" />
+  </EntityType>
+  <Association Name="LigneFactureArticle">
+    <End Type="Model.LigneFacture" Role="LigneFacture" Multiplicity="*" />
+    <End Type="Model.Article" Role="Article" Multiplicity="0..1" />
+  </Association>
+  <Association Name="CatalogueArticle">
+    <End Type="Model.Catalogue" Role="Catalogue" Multiplicity="0..1" />
+    <End Type="Model.Article" Role="Article" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Importateur" BaseType="Model.Entreprise">
+    <NavigationProperty Name="Catalogue" Relationship="Model.ImportateurCatalogue" FromRole="Importateur" ToRole="Catalogue" />
+    <NavigationProperty Name="Activites" Relationship="Model.ImportateurActivite" FromRole="Importateur" ToRole="Activite" />
+    <NavigationProperty Name="Importations" Relationship="Model.ImportationImportateur" FromRole="Importateur" ToRole="Importation" />
+  </EntityType>
+  <Association Name="AssociationASupprimer2">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Banque" Role="Banque" Multiplicity="0..1" />
+  </Association>
+  <Association Name="BanqueAgence">
+    <End Type="Model.Banque" Role="Banque" Multiplicity="0..1" />
+    <End Type="Model.AgenceBanque" Role="AgenceBanque" Multiplicity="*" />
+  </Association>
+  <Association Name="FactureProformaPortEmbarquement">
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="*" />
+    <End Type="Model.Port" Role="Port" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureProformaPortDebarquement">
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="*" />
+    <End Type="Model.Port" Role="Port" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="Chapitres" Relationship="Model.SectionChapitre" FromRole="Section" ToRole="Chapitre" />
+  </EntityType>
+  <EntityType Name="Chapitre">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="Section" Relationship="Model.SectionChapitre" FromRole="Chapitre" ToRole="Section" />
+    <NavigationProperty Name="Positions" Relationship="Model.ChapitrePosition" FromRole="Chapitre" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="Chapitre" Relationship="Model.ChapitrePosition" FromRole="Position" ToRole="Chapitre" />
+    <NavigationProperty Name="SousPositions" Relationship="Model.PositionSousPosition" FromRole="Position" ToRole="SousPosition" />
+  </EntityType>
+  <EntityType Name="SousPosition">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <Property Name="GU" Type="String" Nullable="true" />
+    <Property Name="TVA" Type="Double" Nullable="true" />
+    <Property Name="DD" Type="Double" Nullable="true" />
+    <NavigationProperty Name="Position" Relationship="Model.PositionSousPosition" FromRole="SousPosition" ToRole="Position" />
+    <NavigationProperty Name="UQN" Relationship="Model.SousPositionUQN" FromRole="SousPosition" ToRole="UQN" />
+    <Property Name="Cle" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="SectionChapitre">
+    <End Type="Model.Section" Role="Section" Multiplicity="0..1" />
+    <End Type="Model.Chapitre" Role="Chapitre" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Adresse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LigneAdresse" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="CodePostal" Type="String" Nullable="true" />
+    <NavigationProperty Name="Pays" Relationship="Model.PaysAdresse" FromRole="Adresse" ToRole="Pays" />
+  </EntityType>
+  <EntityType Name="AdresseLocale" BaseType="Model.Adresse">
+    <NavigationProperty Name="Wilaya" Relationship="Model.AdresseLocaleWilaya" FromRole="AdresseLocale" ToRole="Wilaya" />
+    <Property Name="Daira" Type="String" Nullable="true" />
+    <Property Name="Commune" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Wilaya">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="RecettesImpots" Relationship="Model.WilayaRecetteImpots" FromRole="Wilaya" ToRole="RecetteImpots" />
+  </EntityType>
+  <Association Name="AdresseLocaleWilaya">
+    <End Type="Model.AdresseLocale" Role="AdresseLocale" Multiplicity="*" />
+    <End Type="Model.Wilaya" Role="Wilaya" Multiplicity="0..1" />
+  </Association>
+  <Association Name="EntrepriseAdresse1">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.Adresse" Role="Adresse" Multiplicity="0..1" />
+  </Association>
+  <Association Name="EntrepriseAdresse2">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.Adresse" Role="Adresse" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="FactureDeclaree" BaseType="Model.FactureFrais">
+    <Property Name="TauxTVA" Type="Double" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FactureNonDeclaree" BaseType="Model.FactureFrais" />
+  <EntityType Name="FactureTransit" BaseType="Model.Facture">
+    <Property Name="NumDossier" Type="String" Nullable="true" />
+    <Property Name="NumRepertoire" Type="String" Nullable="true" />
+    <NavigationProperty Name="FraisDeclares" Relationship="Model.FactureTransitFrais" FromRole="FactureTransit" ToRole="FactureDeclaree" />
+    <NavigationProperty Name="FraisNonDeclares" Relationship="Model.FactureTransitFactureNonDeclaree" FromRole="FactureTransit" ToRole="FactureNonDeclaree" />
+  </EntityType>
+  <Association Name="FactureTransitFactureNonDeclaree">
+    <End Type="Model.FactureTransit" Role="FactureTransit" Multiplicity="0..1" />
+    <End Type="Model.FactureNonDeclaree" Role="FactureNonDeclaree" Multiplicity="*" />
+  </Association>
+  <EntityType Name="TaxeDouanier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumD10" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <NavigationProperty Name="FichiersJoints" Relationship="Model.D10Fichier" FromRole="D10" ToRole="Fichier" />
+    <Property Name="Date" Type="DateTime" Nullable="true" />
+    <Property Name="MontantFactureDA" Type="Double" Nullable="true" />
+    <NavigationProperty Name="Paiement" Relationship="Model.TaxeDouanierPaiement" FromRole="TaxeDouanier" ToRole="Paiement" />
+    <Property Name="MontantFretDA" Type="Double" Nullable="true" />
+    <Property Name="MontantAssurancesDA" Type="Double" Nullable="true" />
+    <Property Name="MontantFraisDA" Type="Double" Nullable="true" />
+    <Property Name="TotalRedevances" Type="Double" Nullable="true" />
+  </EntityType>
+  <Association Name="FactureTransitFrais">
+    <End Type="Model.FactureTransit" Role="FactureTransit" Multiplicity="0..1" />
+    <End Type="Model.FactureDeclaree" Role="FactureDeclaree" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationD10">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="1" />
+    <End Type="Model.TaxeDouanier" Role="D10" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureDefinitivePortEmbarquement">
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="0..1" />
+    <End Type="Model.Port" Role="Port" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureDefinitivePortDebarquement">
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="0..1" />
+    <End Type="Model.Port" Role="Port" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ChapitrePosition">
+    <End Type="Model.Chapitre" Role="Chapitre" Multiplicity="0..1" />
+    <End Type="Model.Position" Role="Position" Multiplicity="*" />
+  </Association>
+  <Association Name="PositionSousPosition">
+    <End Type="Model.Position" Role="Position" Multiplicity="0..1" />
+    <End Type="Model.SousPosition" Role="SousPosition" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Connaissement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumBL" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="NumVoyage" Type="String" Nullable="true" />
+    <NavigationProperty Name="Conteneurs" Relationship="Model.ConnaissementConteneur" FromRole="Connaissement" ToRole="Conteneur" />
+    <NavigationProperty Name="CompagnieMaritime" Relationship="Model.ConnaissementCompagnieMaritime" FromRole="Connaissement" ToRole="CompagnieMaritime" />
+    <NavigationProperty Name="FichiersJoints" Relationship="Model.ConnaissementFichierJoint" FromRole="Connaissement" ToRole="Fichier" />
+    <Property Name="Date" Type="DateTime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Fichier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomFichier" Type="String" Nullable="true" />
+    <Property Name="Description" Type="String" Nullable="true" />
+    <Property Name="Chemin" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Conteneur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ref" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Poids" Type="Decimal" Nullable="true" />
+    <NavigationProperty Name="Connaissement" Relationship="Model.ConnaissementConteneur" FromRole="Conteneur" ToRole="Connaissement" />
+    <NavigationProperty Name="Type" Relationship="Model.ConteneurTypeConteneur" FromRole="Conteneur" ToRole="TypeConteneur" />
+  </EntityType>
+  <Association Name="ConnaissementConteneur">
+    <End Type="Model.Connaissement" Role="Connaissement" Multiplicity="0..1" />
+    <End Type="Model.Conteneur" Role="Conteneur" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CompagnieMaritime" BaseType="Model.Entreprise" />
+  <Association Name="ConnaissementCompagnieMaritime">
+    <End Type="Model.Connaissement" Role="Connaissement" Multiplicity="*" />
+    <End Type="Model.CompagnieMaritime" Role="CompagnieMaritime" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ConnaissementFichierJoint">
+    <End Type="Model.Connaissement" Role="Connaissement" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="*" />
+  </Association>
+  <Association Name="FactureFichier">
+    <End Type="Model.Facture" Role="Facture" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="*" />
+  </Association>
+  <Association Name="D10Fichier">
+    <End Type="Model.TaxeDouanier" Role="D10" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="*" />
+  </Association>
+  <Association Name="EntrepriseLogo">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportateurCatalogue">
+    <End Type="Model.Importateur" Role="Importateur" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Model.Catalogue" Role="Catalogue" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationFrais">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.FactureFrais" Role="FactureFrais" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ReferenceFournisseur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Reference" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <NavigationProperty Name="Fournisseur" Relationship="Model.FournisseurReferenceFournisseur" FromRole="ReferenceFournisseur" ToRole="Fournisseur" />
+    <NavigationProperty Name="Article" Relationship="Model.ReferenceFournisseurArticle" FromRole="ReferenceFournisseur" ToRole="Article" />
+  </EntityType>
+  <Association Name="FournisseurReferenceFournisseur">
+    <End Type="Model.Fournisseur" Role="Fournisseur" Multiplicity="0..1" />
+    <End Type="Model.ReferenceFournisseur" Role="ReferenceFournisseur" Multiplicity="*" />
+  </Association>
+  <Association Name="ReferenceFournisseurArticle">
+    <End Type="Model.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="Model.ReferenceFournisseur" Role="ReferenceFournisseur" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Pays">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="Devise" Relationship="Model.PaysDevise" FromRole="Pays" ToRole="Devise" />
+    <NavigationProperty Name="Ports" Relationship="Model.PortPays" FromRole="Pays" ToRole="Port" />
+  </EntityType>
+  <Association Name="PaysAdresse">
+    <End Type="Model.Pays" Role="Pays" Multiplicity="0..1" />
+    <End Type="Model.Adresse" Role="Adresse" Multiplicity="*" />
+  </Association>
+  <EntityType Name="TypeConteneur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="ConteneurTypeConteneur">
+    <End Type="Model.Conteneur" Role="Conteneur" Multiplicity="*" />
+    <End Type="Model.TypeConteneur" Role="TypeConteneur" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="ModeReglement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TypeEntreprise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="RaisonSocialeEntreprise">
+    <End Type="Model.TypeEntreprise" Role="RaisonSociale" Multiplicity="0..1" />
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="*" />
+  </Association>
+  <EntityType Name="StatutJuridique">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="StatutJuridiqueEntreprise">
+    <End Type="Model.StatutJuridique" Role="StatutJuridique" Multiplicity="0..1" />
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Devise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <NavigationProperty Name="Pays" Relationship="Model.PaysDevise" FromRole="Devise" ToRole="Pays" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="PaysDevise">
+    <End Type="Model.Pays" Role="Pays" Multiplicity="*" />
+    <End Type="Model.Devise" Role="Devise" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="MotifFacture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="FactureFraisMotif">
+    <End Type="Model.FactureFrais" Role="FactureFrais" Multiplicity="*" />
+    <End Type="Model.MotifFacture" Role="MotifFacture" Multiplicity="0..1" />
+  </Association>
+  <EnumType Name="Titre">
+    <Member Name="Mr" />
+    <Member Name="Mrs" />
+    <Member Name="Ms" />
+    <Member Name="Miss" />
+  </EnumType>
+  <Association Name="PortPays">
+    <End Type="Model.Port" Role="Port" Multiplicity="*" />
+    <End Type="Model.Pays" Role="Pays" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="UQN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="SousPositionUQN">
+    <End Type="Model.SousPosition" Role="SousPosition" Multiplicity="*" />
+    <End Type="Model.UQN" Role="UQN" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationBanqueImportateur">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.AgenceBanque" Role="AgenceBanque" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationBanqueFournisseur">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.AgenceBanque" Role="AgenceBanque" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Activite">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="ImportateurActivite">
+    <End Type="Model.Importateur" Role="Importateur" Multiplicity="*" />
+    <End Type="Model.Activite" Role="Activite" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationActivite">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Activite" Role="Activite" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationFR" Type="String" Nullable="true" />
+    <Property Name="DesignationEN" Type="String" Nullable="true" />
+    <Property Name="DesignationAR" Type="String" Nullable="true" />
+    <NavigationProperty Name="PositionTarifaire" Relationship="Model.PositionProduit" FromRole="Produit" ToRole="SousPosition" />
+    <NavigationProperty Name="Attributs" Relationship="Model.AttributsProduit" FromRole="Produit" ToRole="Attribut" />
+    <NavigationProperty Name="Articles" Relationship="Model.ArticleProduit" FromRole="Produit" ToRole="Article" />
+    <NavigationProperty Name="Catalogue" Relationship="Model.CatalogueProduit" FromRole="Produit" ToRole="Catalogue" />
+  </EntityType>
+  <EntityType Name="Attribut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DesignationFR" Type="String" Nullable="true" />
+    <Property Name="DesignationEN" Type="String" Nullable="true" />
+    <Property Name="DesignationAR" Type="String" Nullable="true" />
+    <NavigationProperty Name="Valeurs" Relationship="Model.ValeursAttribut" FromRole="Attribut" ToRole="Valeur" />
+    <NavigationProperty Name="Fils" Relationship="Model.AttributPereFils" FromRole="Attribut" ToRole="Attribut1" />
+    <NavigationProperty Name="Pere" Relationship="Model.AttributPereFils" FromRole="Attribut1" ToRole="Attribut" />
+  </EntityType>
+  <EntityType Name="Valeur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ValeurFR" Type="String" Nullable="true" />
+    <Property Name="ValeurAR" Type="String" Nullable="true" />
+    <Property Name="ValeurEN" Type="String" Nullable="true" />
+    <NavigationProperty Name="Attribut" Relationship="Model.ValeursAttribut" FromRole="Valeur" ToRole="Attribut" />
+    <NavigationProperty Name="Fils" Relationship="Model.ValeurPereFils" FromRole="Valeur" ToRole="Valeur1" />
+    <NavigationProperty Name="Pere" Relationship="Model.ValeurPereFils" FromRole="Valeur1" ToRole="Valeur" />
+  </EntityType>
+  <Association Name="PositionProduit">
+    <End Type="Model.Produit" Role="Produit" Multiplicity="*" />
+    <End Type="Model.SousPosition" Role="SousPosition" Multiplicity="0..1" />
+  </Association>
+  <Association Name="AttributsProduit">
+    <End Type="Model.Produit" Role="Produit" Multiplicity="*" />
+    <End Type="Model.Attribut" Role="Attribut" Multiplicity="*" />
+  </Association>
+  <Association Name="ArticleProduit">
+    <End Type="Model.Article" Role="Article" Multiplicity="*" />
+    <End Type="Model.Produit" Role="Produit" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ValeursAttribut">
+    <End Type="Model.Valeur" Role="Valeur" Multiplicity="*" />
+    <End Type="Model.Attribut" Role="Attribut" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ArticleValeur">
+    <End Type="Model.Article" Role="Article" Multiplicity="*" />
+    <End Type="Model.Valeur" Role="Valeur" Multiplicity="*" />
+  </Association>
+  <Association Name="ContactEntreprise">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.Personne" Role="Personne" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="LigneCommande">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantite" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="Article" Relationship="Model.ArticleLigneCommande" FromRole="LigneCommande" ToRole="Article" />
+    <NavigationProperty Name="Commande" Relationship="Model.CommandeLigneCommande" FromRole="LigneCommande" ToRole="Commande" />
+  </EntityType>
+  <Association Name="ArticleLigneCommande">
+    <End Type="Model.LigneCommande" Role="LigneCommande" Multiplicity="*" />
+    <End Type="Model.Article" Role="Article" Multiplicity="0..1" />
+  </Association>
+  <Association Name="CommandeLigneCommande">
+    <End Type="Model.Commande" Role="Commande" Multiplicity="0..1" />
+    <End Type="Model.LigneCommande" Role="LigneCommande" Multiplicity="*" />
+  </Association>
+  <EntityType Name="FactureFournisseur" BaseType="Model.Facture">
+    <NavigationProperty Name="LignesFacture" Relationship="Model.LigneFactureFournisseur" FromRole="FactureFournisseur" ToRole="LigneFacture" />
+  </EntityType>
+  <Association Name="LigneFactureFournisseur">
+    <End Type="Model.FactureFournisseur" Role="FactureFournisseur" Multiplicity="1" />
+    <End Type="Model.LigneFacture" Role="LigneFacture" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationFactureTransit">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="1" />
+    <End Type="Model.FactureTransit" Role="FactureTransit" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Paiement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Montant" Type="Decimal" Nullable="true" />
+    <Property Name="Date" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="ModeReglement" Relationship="Model.PaiementModeReglement" FromRole="Paiement" ToRole="ModeReglement" />
+    <NavigationProperty Name="Devise" Relationship="Model.PaiementDevise" FromRole="Paiement" ToRole="Devise" />
+    <NavigationProperty Name="RecuPaiement" Relationship="Model.PaiementFichier" FromRole="Paiement" ToRole="Fichier" />
+  </EntityType>
+  <Association Name="PaiementModeReglement">
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="*" />
+    <End Type="Model.ModeReglement" Role="ModeReglement" Multiplicity="0..1" />
+  </Association>
+  <Association Name="PaiementDevise">
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="*" />
+    <End Type="Model.Devise" Role="Devise" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Echeance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateEcheance" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Type" Relationship="Model.EcheanceTypeEcheance" FromRole="Echeance" ToRole="TypeEcheance" />
+    <NavigationProperty Name="Paiements" Relationship="Model.EcheancePaiement" FromRole="Echeance" ToRole="Paiement" />
+  </EntityType>
+  <EntityType Name="TypeEcheance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="EcheanceTypeEcheance">
+    <End Type="Model.Echeance" Role="Echeance" Multiplicity="*" />
+    <End Type="Model.TypeEcheance" Role="TypeEcheance" Multiplicity="0..1" />
+  </Association>
+  <Association Name="EcheancePaiement">
+    <End Type="Model.Echeance" Role="Echeance" Multiplicity="0..1" />
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="*" />
+  </Association>
+  <Association Name="FacturePaiement">
+    <End Type="Model.Facture" Role="Facture" Multiplicity="0..1" />
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureEcheance">
+    <End Type="Model.Facture" Role="Facture" Multiplicity="0..1" />
+    <End Type="Model.Echeance" Role="Echeance" Multiplicity="0..1" />
+  </Association>
+  <Association Name="PaiementFichier">
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="*" />
+  </Association>
+  <Association Name="TaxeDouanierPaiement">
+    <End Type="Model.TaxeDouanier" Role="TaxeDouanier" Multiplicity="0..1" />
+    <End Type="Model.Paiement" Role="Paiement" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomUtilisateur" Type="String" Nullable="true" />
+    <Property Name="MotDePasse" Type="String" Nullable="true" />
+    <Property Name="Type" Type="Model.TypeUtilisateur" Nullable="true" />
+  </EntityType>
+  <EnumType Name="TypeUtilisateur">
+    <Member Name="Administrateur" Value="0" />
+    <Member Name="Agent" Value="1" />
+    <Member Name="Consultant" Value="2" />
+  </EnumType>
+  <Association Name="ImportationCommande">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="1" />
+    <End Type="Model.Commande" Role="Commande" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationOffre">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="1" />
+    <End Type="Model.Offre" Role="Offre" Multiplicity="*" />
+  </Association>
+  <Association Name="CatalogueProduit">
+    <End Type="Model.Catalogue" Role="Catalogue" Multiplicity="0..1" />
+    <End Type="Model.Produit" Role="Produit" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationPaysOrigine">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Pays" Role="Pays" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureProformaModeReglement">
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="*" />
+    <End Type="Model.ModeReglement" Role="ModeReglement" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureProformaDevise">
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="*" />
+    <End Type="Model.Devise" Role="Devise" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Financement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="ImportationFinancement">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Financement" Role="Financement" Multiplicity="*" />
+  </Association>
+  <EntityType Name="DestinationProduit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="ImportationDestinationProduit">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.DestinationProduit" Role="DestinationProduit" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="RecetteImpots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+    <NavigationProperty Name="Wilaya" Relationship="Model.WilayaRecetteImpots" FromRole="RecetteImpots" ToRole="Wilaya" />
+  </EntityType>
+  <Association Name="WilayaRecetteImpots">
+    <End Type="Model.Wilaya" Role="Wilaya" Multiplicity="0..1" />
+    <End Type="Model.RecetteImpots" Role="RecetteImpots" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationRecetteImpots">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.RecetteImpots" Role="RecetteImpots" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureDefinitiveModeReglement">
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="*" />
+    <End Type="Model.ModeReglement" Role="ModeReglement" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureDefinitiveDevise">
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="*" />
+    <End Type="Model.Devise" Role="Devise" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationImportateur">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Importateur" Role="Importateur" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationFournisseur">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Fournisseur" Role="Fournisseur" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationTransit">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="*" />
+    <End Type="Model.Transit" Role="Transit" Multiplicity="0..1" />
+  </Association>
+  <Association Name="EntrepriseMotifFacture">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.MotifFacture" Role="MotifFacture" Multiplicity="*" />
+  </Association>
+  <Association Name="FactureFraisEntreprise">
+    <End Type="Model.FactureFrais" Role="FactureFrais" Multiplicity="*" />
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationArrivage">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.LigneCommande" Role="LigneCommande" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num" Type="String" Nullable="true" />
+    <Property Name="Date" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Fichiers" Relationship="Model.DocumentFichier" FromRole="Document" ToRole="Fichier" />
+  </EntityType>
+  <Association Name="DocumentFichier">
+    <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
+    <End Type="Model.Fichier" Role="Fichier" Multiplicity="*" />
+  </Association>
+  <Association Name="ImportationCertificatDeConformite">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
+  </Association>
+  <Association Name="CertificatDOrigine">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationListeDeColissage">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ImportationConnaissement">
+    <End Type="Model.Importation" Role="Importation" Multiplicity="0..1" />
+    <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="CompteBancaire">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumCompte" Type="String" Nullable="true" />
+    <NavigationProperty Name="Entreprise" Relationship="Model.EntrepriseCompteBancaire" FromRole="CompteBancaire" ToRole="Entreprise" />
+    <NavigationProperty Name="Banque" Relationship="Model.BanqueCompteBancaire" FromRole="CompteBancaire" ToRole="Banque" />
+  </EntityType>
+  <Association Name="EntrepriseCompteBancaire">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="0..1" />
+    <End Type="Model.CompteBancaire" Role="CompteBancaire" Multiplicity="*" />
+  </Association>
+  <Association Name="BanqueCompteBancaire">
+    <End Type="Model.CompteBancaire" Role="CompteBancaire" Multiplicity="*" />
+    <End Type="Model.Banque" Role="Banque" Multiplicity="0..1" />
+  </Association>
+  <Association Name="EntrepriseGerant">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="*" />
+    <End Type="Model.Personne" Role="Personne" Multiplicity="0..1" />
+  </Association>
+  <Association Name="PersonneAdresse">
+    <End Type="Model.Personne" Role="Personne" Multiplicity="0..1" />
+    <End Type="Model.Adresse" Role="Adresse" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="TypeActivite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="EntrepriseTypeActivite">
+    <End Type="Model.Entreprise" Role="Entreprise" Multiplicity="*" />
+    <End Type="Model.TypeActivite" Role="TypeActivite" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Incoterm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="true" annotation:StoreGeneratedPattern="None" />
+  </EntityType>
+  <Association Name="FactureDefinitiveIncoterm">
+    <End Type="Model.FactureDefinitive" Role="FactureDefinitive" Multiplicity="*" />
+    <End Type="Model.Incoterm" Role="Incoterm" Multiplicity="0..1" />
+  </Association>
+  <Association Name="FactureProformaIncoterm">
+    <End Type="Model.FactureProforma" Role="FactureProforma" Multiplicity="*" />
+    <End Type="Model.Incoterm" Role="Incoterm" Multiplicity="0..1" />
+  </Association>
+  <Association Name="AttributPereFils">
+    <End Type="Model.Attribut" Role="Attribut" Multiplicity="0..1" />
+    <End Type="Model.Attribut" Role="Attribut1" Multiplicity="*" />
+  </Association>
+  <Association Name="ValeurPereFils">
+    <End Type="Model.Valeur" Role="Valeur" Multiplicity="0..1" />
+    <End Type="Model.Valeur" Role="Valeur1" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Packaging">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="ArticlePackaging">
+    <End Type="Model.Article" Role="Article" Multiplicity="*" />
+    <End Type="Model.Packaging" Role="Packaging" Multiplicity="0..1" />
+  </Association>
+</Schema>

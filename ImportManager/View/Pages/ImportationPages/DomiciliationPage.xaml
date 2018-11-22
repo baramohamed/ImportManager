@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="ImportManager.View.DomiciliationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ImportManager.View"
+      xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+      mc:Ignorable="d" 
+       d:DesignWidth="1000">
+    <MaterialDesign:DialogHost IsOpen="{Binding IsDialogOpen}">
+        <MaterialDesign:DialogHost.DialogContent>
+            <StackPanel VerticalAlignment="Bottom">
+                <ListView ItemsSource="{Binding SelectedDocument.Fichiers}"
+                          ItemTemplate="{StaticResource FileTemplate}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="600"
+                                       Height="500"
+                                       Margin="10"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Ajouter..."
+                            Command="{Binding SelectedDocument.AjouterFichier}"
+                                />
+                    <Button Content="Fermer"
+                            Grid.Column="1"
+                            Command="{Binding CloseDialog}"/>
+                </Grid>
+            </StackPanel>
+        </MaterialDesign:DialogHost.DialogContent>
+        <StackPanel Margin="10">
+            <TextBlock Text="Banque" 
+                       FontSize="25" 
+                       HorizontalAlignment="Left"/>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <ComboBox x:Name="BanqueImportateur" MaterialDesign:HintAssist.Hint="Choisir Banque"
+                              ItemsSource="{Binding Banques}"
+                              SelectedItem="{Binding SelectedBanque,Mode=OneWay}"
+                          DisplayMemberPath="Denomination"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Financement"
+                          ItemsSource="{Binding ModesFinancement}"
+                          SelectedItem="{Binding Financement}"
+                          DisplayMemberPath="Designation"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Produit Destiné à"
+                          ItemsSource="{Binding DestinationsProduit}"
+                          SelectedItem="{Binding DestinationProduit}"
+                          DisplayMemberPath="Designation"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="N° Pré-Domiciliation"
+                         Text="{Binding NPreDomiciliation}"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="Cours de Domiciliation"
+                             Text="{Binding Cours,StringFormat={}{0:N2}}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <ComboBox MaterialDesign:HintAssist.Hint="Agence"
+                              ItemsSource="{Binding SelectedBanque.Agences}"
+                              SelectedItem="{Binding AgenceBanqueImportateur}"
+                              DisplayMemberPath="Designation"/>
+                    <Grid Height="50" 
+                          Margin="10"
+                          TextElement.FontSize="18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Facture: "
+                                   Margin="20,0"
+                                   VerticalAlignment="Center"/>
+                        <RadioButton Grid.Column="1" 
+                                     Content="Proforma"
+                                     VerticalAlignment="Center"
+                                     IsChecked="{Binding IsProforma}"/>
+                        <RadioButton Grid.Column="2" 
+                                     Content="Définitive"
+                                     VerticalAlignment="Center"
+                                     IsChecked="{Binding IsDefinitive}"/>
+                    </Grid>
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Expédition"
+                                SelectedDate="{Binding DateExpedition}"/>
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Pré-Domiciliation"
+                                SelectedDate="{Binding DatePreDomiciliation}"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ordre d'Achat" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                <TextBox Text="{Binding LieuOrdreAchat}"
+                         Width="150"
+                         MaterialDesign:HintAssist.Hint="Lieu"/>
+                <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            SelectedDate="{Binding DateOrdreAchat}"
+                            Width="150"/>
+                <ComboBox MaterialDesign:HintAssist.Hint="Facture"
+                          Width="150"/>
+                <Button Style="{StaticResource IconButton}"
+                        Command="{Binding PrintCommand}"
+                        Content="{StaticResource PrinterIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+            </StackPanel>
+            <TextBlock Text="Taxe Domiciliation" 
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       Margin="10"/>
+            <StackPanel Orientation="Horizontal"
+                        TextElement.FontSize="18">
+                <TextBlock Text="Direction des Impôts:"
+                           VerticalAlignment="Center"
+                           Margin="20,10"/>
+                <ComboBox x:Name="WilayaImpots" MaterialDesign:HintAssist.Hint="Wilaya" 
+                      Width="100"
+                      ItemsSource="{Binding Wilayas}"
+                      DisplayMemberPath="Designation"/>
+                <ComboBox MaterialDesign:HintAssist.Hint="Recette" 
+                          Width="100"
+                          ItemsSource="{Binding ElementName=WilayaImpots,Path=SelectedItem.RecettesImpots}"
+                          SelectedItem="{Binding RecetteImpots}"
+                      DisplayMemberPath="Designation"/>
+                <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            Width="150"/>
+                <Button Style="{StaticResource IconButton}"
+                        Command="{Binding PrintTaxe}"
+                        Content="{StaticResource PrinterIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Demande de Franchise des Droits de Douane" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                <Button Style="{StaticResource IconButton}"
+                        Command="{Binding PrintFranchise}"
+                        Content="{StaticResource PrinterIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,20" 
+                    Visibility="{Binding NotEnCours,Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Text="Facture Définitive" 
+                       FontSize="25"
+                       Margin="10"
+                       HorizontalAlignment="Left"/>
+                <local:FactureDefinitiveControl DataContext="{Binding FactureDefinitive}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Connaissement (Bill of Lading)" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding Connaissement}">
+                        <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            SelectedDate="{Binding Date}"
+                            Width="150"/>
+                        <TextBox MaterialDesign:HintAssist.Hint="N°"
+                         Text="{Binding Num}"
+                          Width="150"/>
+                    </StackPanel>
+                    <Button Style="{StaticResource IconButton}"
+                        Command="{Binding JoinConnaissement}"
+                        Content="{StaticResource PaperClipIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Cetificat d'Origine" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding CertificatDOrigine}">
+                        <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            SelectedDate="{Binding Date}"
+                            Width="150"/>
+                        <TextBox MaterialDesign:HintAssist.Hint="N°"
+                         Text="{Binding Num}"
+                          Width="150"/>
+                    </StackPanel>
+                    <Button Style="{StaticResource IconButton}"
+                        Command="{Binding JoinCertificatDOrigine}"
+                        Content="{StaticResource PaperClipIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Certificat de Conformité" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding CertificatDeConformite}">
+                        <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            SelectedDate="{Binding Date}"
+                            Width="150"/>
+                        <TextBox MaterialDesign:HintAssist.Hint="N°"
+                         Text="{Binding Num}"
+                          Width="150"/>
+                    </StackPanel>
+                    <Button Style="{StaticResource IconButton}"
+                        Command="{Binding JoinCertificatDeConformite}"
+                        Content="{StaticResource PaperClipIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Liste de Colissage (Packing List)" 
+                           FontSize="25"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding ListeDeColissage}">
+                        <DatePicker MaterialDesign:HintAssist.Hint="Date"
+                            SelectedDate="{Binding Date}"
+                            Width="150"/>
+                        <TextBox MaterialDesign:HintAssist.Hint="N°"
+                         Text="{Binding Num}"
+                          Width="150"/>
+                    </StackPanel>
+                    <Button Style="{StaticResource IconButton}"
+                        Command="{Binding JoinListeDeColissage}"
+                        Content="{StaticResource PaperClipIcon}"
+                        HorizontalAlignment="Right"
+                        Height="50"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </MaterialDesign:DialogHost>
+    
+</UserControl>

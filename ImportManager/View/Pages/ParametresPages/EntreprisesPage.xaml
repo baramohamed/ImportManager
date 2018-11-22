@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="ImportManager.View.EntreprisesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ImportManager.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="1400" d:DesignWidth="1200"
+      xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+      xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ImportateurPageDataTemplate">
+            <local:FicheImportateur/>
+        </DataTemplate>
+        <DataTemplate x:Key="FournisseurPageDataTemplate">
+            <local:FicheFournisseur/>
+        </DataTemplate>
+        <DataTemplate x:Key="BanquePageDataTemplate">
+            <local:FicheBanque/>
+        </DataTemplate>
+        <DataTemplate x:Key="TransitPageDataTemplate">
+            <local:FicheTransit/>
+        </DataTemplate>
+        <DataTemplate x:Key="EntreprisePageDataTemplate">
+            <local:FicheEntreprise/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <MaterialDesign:DialogHost IsOpen="{Binding IsDialogHostOpen}">
+        <MaterialDesign:DialogHost.DialogContent>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Top">
+                    <Button Content="{StaticResource CheckIcon}"
+                            Command="{Binding CloseDialogHost}"
+                            Style="{StaticResource IconButton}"/>
+                </StackPanel>
+                <ScrollViewer Height="600">
+                    <ContentControl Content="{Binding SelectedEntreprise}" 
+                                    ContentTemplateSelector="{StaticResource EntrepriseTemplateSelector}"/>
+                </ScrollViewer>
+            </StackPanel>
+        </MaterialDesign:DialogHost.DialogContent>
+        <StackPanel >
+            <StackPanel >
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                DockPanel.Dock="Top">
+                        <Button Content="{StaticResource CloseIcon}"
+                                Command="{Binding DeleteEntreprise}"
+                                Style="{StaticResource IconButton}"/>
+                        <Button Content="{StaticResource SettingsIcon}"
+                            Command="{Binding EditEntreprise}"
+                            Style="{StaticResource IconButton}"/>
+                        <Button Content="{StaticResource PlusIcon}"
+                                Command="{Binding AddEntreprise}"
+                                Style="{StaticResource IconButton}"/>
+                    </StackPanel>
+                    <dragablz:TabablzControl Margin="20" SelectedIndex="{Binding SelectedList,Mode=OneWayToSource}">
+                        <TabItem Header="Importateurs">
+                            <ListView ItemsSource="{Binding Importateurs}"
+                                      SelectedItem="{Binding SelectedEntreprise}"
+                                      DisplayMemberPath="Denomination"/>
+                        </TabItem>
+                        <TabItem Header="Fournisseurs">
+                            <ListView ItemsSource="{Binding Fournisseurs}"
+                                      SelectedItem="{Binding SelectedEntreprise}"
+                                      DisplayMemberPath="Denomination"/>
+                        </TabItem>
+                        <TabItem Header="Banques">
+                            <ListView ItemsSource="{Binding Banques}"
+                                      SelectedItem="{Binding SelectedEntreprise}"
+                                      DisplayMemberPath="Denomination"/>
+                        </TabItem>
+                        <TabItem Header="Transitaires">
+                            <ListView ItemsSource="{Binding Transitaires}"
+                                      SelectedItem="{Binding SelectedEntreprise}"
+                                      DisplayMemberPath="Denomination"/>
+                        </TabItem>
+                        <TabItem Header="Autres">
+                            <ListView ItemsSource="{Binding Autres}"
+                                      SelectedItem="{Binding SelectedEntreprise}"
+                                      DisplayMemberPath="Denomination"/>
+                        </TabItem>
+                    </dragablz:TabablzControl>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </MaterialDesign:DialogHost>
+    
+</UserControl>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ImportManager.View.AdresseControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImportManager.View"
+             xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             d:DesignWidth="800">
+    <StackPanel >
+        <TextBox MaterialDesign:HintAssist.Hint="Adresse" 
+                 Text="{Binding LigneAdresse}"/>
+        <StackPanel Orientation="Horizontal">
+            <ComboBox MaterialDesign:HintAssist.Hint="Pays" 
+                  ItemsSource="{Binding ListePays}"
+                  SelectedItem="{Binding Pays}"
+                      DisplayMemberPath="Designation"
+                  Width="100"/>
+            <ComboBox MaterialDesign:HintAssist.Hint="Wilaya" 
+                      Visibility="{Binding IsAdresseLocale,Converter={StaticResource BooleanToVisibilityConverter}}"
+                      ItemsSource="{Binding Wilayas}"
+                      SelectedItem="{Binding Wilaya}"
+                      DisplayMemberPath="Designation"
+                      Width="100"/>
+            <TextBox MaterialDesign:HintAssist.Hint="Daira" 
+                     Visibility="{Binding IsAdresseLocale,Converter={StaticResource BooleanToVisibilityConverter}}"
+                     Text="{Binding Daira}"
+                     Width="150"/>
+            <TextBox MaterialDesign:HintAssist.Hint="Commune" 
+                     Visibility="{Binding IsAdresseLocale,Converter={StaticResource BooleanToVisibilityConverter}}"
+                     Text="{Binding Commune}"
+                     Width="150"/>
+            <TextBox MaterialDesign:HintAssist.Hint="Code Postal" 
+                 Text="{Binding CodePostal}"
+                     Width="100"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

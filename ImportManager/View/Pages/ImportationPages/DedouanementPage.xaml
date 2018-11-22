@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="ImportManager.View.DedouanementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ImportManager.View"
+      xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="2100" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <MaterialDesign:DialogHost IsOpen="{Binding IsDialogOpen}">
+        <MaterialDesign:DialogHost.DialogContent>
+            <StackPanel VerticalAlignment="Bottom">
+                <ListView ItemsSource="{Binding Fichiers}"
+                          ItemTemplate="{StaticResource FileTemplate}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="600"
+                                       Height="500"
+                                       Margin="10"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Ajouter..."
+                            Command="{Binding AjouterFichier}"
+                                />
+                    <Button Content="Fermer"
+                            Grid.Column="1"
+                            Command="{Binding CloseDialog}"/>
+                </Grid>
+            </StackPanel>
+        </MaterialDesign:DialogHost.DialogContent>
+        <StackPanel Margin="10">
+            <Grid>
+                <TextBlock Text="Droits Douaniers (D10)"
+                       FontSize="25"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="10"/>
+                <Button Style="{StaticResource IconButton}"
+                Command="{Binding OpenDialog}"
+                Content="{StaticResource PaperClipIcon}"
+                HorizontalAlignment="Right"
+                Height="50"/>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <ComboBox MaterialDesign:HintAssist.Hint="Choisir Transitaire" 
+                          ItemsSource="{Binding Transitaires}"
+                          SelectedItem="{Binding Transit}"
+                          DisplayMemberPath="Denomination"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="Cours:"
+                         Text="{Binding CoursDedouanement,StringFormat={}{0:N6}}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox MaterialDesign:HintAssist.Hint="Montant Facture:"
+                         Text="{Binding MontantFacture,StringFormat={}{0:N2}}"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="Montant Fret:"
+                         Text="{Binding MontantFret,StringFormat={}{0:N2}}"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="Montant Assurances:"
+                         Text="{Binding MontantAssurances,StringFormat={}{0:N2}}"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="Autres Frais:"
+                         Text="{Binding MontantFrais,StringFormat={}{0:N2}}"/>
+                    <TextBlock Text="{Binding ValeurDA,StringFormat = Valeur en DA : {0:N2}}"
+                           FontSize="20"/>
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <ComboBox MaterialDesign:HintAssist.Hint="Devise"
+                          ItemsSource="{Binding Devises}"
+                          SelectedItem="{Binding DeviseFacture}"
+                          DisplayMemberPath="Code"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Devise"
+                          ItemsSource="{Binding Devises}"
+                          SelectedItem="{Binding DeviseFret}"
+                          DisplayMemberPath="Code"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Devise"
+                          ItemsSource="{Binding Devises}"
+                          SelectedItem="{Binding DeviseAssurances}"
+                          DisplayMemberPath="Code"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Devise"
+                          ItemsSource="{Binding Devises}"
+                          SelectedItem="{Binding DeviseFrais}"
+                          DisplayMemberPath="Code"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Margin="10">
+                <DataGrid
+                Height="300" 
+                AutoGenerateColumns="False" 
+                ColumnWidth="120"
+                BorderThickness="0.8"
+                ItemsSource="{Binding Taxes}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Réf Fournisseur" Binding="{Binding Reference}"/>
+                        <DataGridTextColumn Header="Désignation" Width="200" Binding="{Binding Designation}"/>
+                        <DataGridTextColumn Header="Quantité" Binding="{Binding Quantite}"/>
+                        <DataGridTextColumn Header="Prix Achat" Binding="{Binding PrixUnit,StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="Assiette" Binding="{Binding Assiette,StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="D.D" Binding="{Binding MontantDD,StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="T.C.S" Binding="{Binding MontantTCS,StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="T.V.A" Binding="{Binding MontantTVA,StringFormat={}{0:N2}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="480"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox MaterialDesign:HintAssist.Hint="Redevances (RPS,RUS,...)" 
+                         Text="{Binding TotalRedevances,StringFormat={}{0:N2}}"
+                         HorizontalAlignment="Left"
+                         Grid.Column="0"
+                         Width="250"/>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Total:"/>
+                        <TextBlock Text="{Binding TotalDD,StringFormat={}{0:N2}}"
+                       Grid.Column="1"/>
+                        <TextBlock Text="{Binding TotalTCS,StringFormat={}{0:N2}}"
+                       Grid.Column="2"/>
+                        <TextBlock Text="{Binding TotalTVA,StringFormat={}{0:N2}}"
+                       Grid.Column="3"/>
+                    </Grid>
+                </Grid>
+                <Grid Width="240" HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Total Taxes:"/>
+                    <TextBlock Text="{Binding TotalTaxes,StringFormat={}{0:N2}}"
+                       Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Visibility="{Binding NotEnCours,Converter={StaticResource BooleanToVisibilityConverter}}">
+                <local:FactureTransitControl Margin="0,20" 
+                                     DataContext="{Binding FactureTransit}"/>
+            </StackPanel>
+
+        </StackPanel>
+    </MaterialDesign:DialogHost>
+    
+</UserControl>

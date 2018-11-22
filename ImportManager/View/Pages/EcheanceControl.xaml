@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="ImportManager.View.EcheanceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImportManager.View"
+             xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             MinWidth="600"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <StackPanel>
+        <DatePicker MaterialDesign:HintAssist.Hint="Date d'Echéance"/>
+        <ComboBox MaterialDesign:HintAssist.Hint="Type"/>
+        <TextBlock Text="Montant Total" Style="{StaticResource Body}"/>
+        <TextBlock Text="Reste à Payer" Style="{StaticResource Body}"/>
+        <TextBlock Text="Versements" Style="{StaticResource Title1}"/>
+        <DataGrid ColumnWidth="120"
+                  HorizontalAlignment="Center"
+                  MinHeight="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°"/>
+                <DataGridTextColumn Header="Date"/>
+                <DataGridTextColumn Header="Montant"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,172 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImportManager.View"
+             xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             x:Class="ImportManager.View.FactureDefinitiveControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1000">
+    <MaterialDesign:DialogHost IsOpen="{Binding IsDialogOpen}">
+        <MaterialDesign:DialogHost.DialogContent>
+            <StackPanel VerticalAlignment="Bottom">
+                <ListView ItemsSource="{Binding Fichiers}"
+                          ItemTemplate="{StaticResource FileTemplate}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="600"
+                                       Height="500"
+                                       Margin="10"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Ajouter..."
+                            Command="{Binding AjouterFichier}"
+                                />
+                    <Button Content="Fermer"
+                            Grid.Column="1"
+                            Command="{Binding CloseDialog}"/>
+                </Grid>
+            </StackPanel>
+        </MaterialDesign:DialogHost.DialogContent>
+        <StackPanel>
+            <Button Style="{StaticResource IconButton}"
+                Command="{Binding OpenDialog}"
+                Content="{StaticResource PaperClipIcon}"
+                HorizontalAlignment="Right"
+                Height="50"/>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Facture"
+                            SelectedDate="{Binding DateFacture}"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Pays Origine"
+                          ItemsSource="{Binding Pays}"
+                          SelectedItem="{Binding PaysOrigine}"
+                          DisplayMemberPath="Designation"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Port Embarquement"
+                          ItemsSource="{Binding PortsEmbarquement}"
+                          SelectedItem="{Binding PortEmbarquement}"
+                          DisplayMemberPath="Designation"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Port Debarquement"
+                          ItemsSource="{Binding PortsDebarquement}"
+                          SelectedItem="{Binding PortDebarquement}"
+                          DisplayMemberPath="Designation"/>
+                    <ComboBox x:Name="BanqueFournisseur" 
+                          MaterialDesign:HintAssist.Hint="Banque Fournisseur"
+                          ItemsSource="{Binding Banques}"
+                          DisplayMemberPath="Denomination"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Mode Règlement"
+                          ItemsSource="{Binding ModesReglement}"
+                          SelectedItem="{Binding ModeReglement}"
+                          DisplayMemberPath="Designation"/>
+                    <TextBox MaterialDesign:HintAssist.Hint="N° Domiciliation"
+                         Text="{Binding DomiciliationN}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox MaterialDesign:HintAssist.Hint="Invoice N°"
+                         Text="{Binding InvoiceN}"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Incoterm"
+                          ItemsSource="{Binding Incoterms}"
+                          SelectedItem="{Binding Incoterm}"
+                          DisplayMemberPath="Code"/>
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Embarquement"
+                            SelectedDate="{Binding DateEmbarquement}"/>
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Debarquement"
+                            SelectedDate="{Binding DateDebarquement}"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Agence"
+                          ItemsSource="{Binding ElementName=BanqueFournisseur,Path=SelectedItem.Agences}"
+                          SelectedItem="{Binding AgenceBanqueFournisseur}"
+                          DisplayMemberPath="Designation"/>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Devise"
+                          ItemsSource="{Binding Devises}"
+                          SelectedItem="{Binding Devise}"
+                          DisplayMemberPath="Designation"/>
+                    <DatePicker MaterialDesign:HintAssist.Hint="Date Domiciliation"
+                            SelectedDate="{Binding DomiciliationDate}"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox MaterialDesign:HintAssist.Hint="Produit"
+                          Grid.Column="0"
+                      ItemsSource="{Binding Produits}"
+                      DisplayMemberPath="DesignationFR"
+                      SelectedItem="{Binding SelectedProduit}"/>
+                    <ItemsControl Grid.Column="1" ItemsSource="{Binding Attributs}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ComboBox MaterialDesign:HintAssist.Hint="{Binding Key.DesignationFR}"
+                                      ItemsSource="{Binding Key.Valeurs}"
+                                      DisplayMemberPath="ValeurFR"
+                                      SelectedItem="{Binding Value}"
+                                      Width="100"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <Button Content="{StaticResource DoubleArrowDownIcon}"
+                        Style="{StaticResource IconButton}"
+                        Command="{Binding Select}"/>
+                        <Button Content="{StaticResource SettingsIcon}"
+                        Style="{StaticResource IconButton}" 
+                        Command="{Binding Edit}"/>
+                        <Button Content="{StaticResource CloseIcon}"
+                        Style="{StaticResource IconButton}"
+                        Command="{Binding Delete}"/>
+                    </StackPanel>
+                </Grid>
+                <DataGrid Margin="10" 
+                      Height="300" 
+                      AutoGenerateColumns="False" 
+                      ColumnWidth="120"
+                      BorderThickness="0.8"
+                      ItemsSource="{Binding Lignes}"
+                      SelectedItem="{Binding SelectedLigne}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="N°" Binding="{Binding Index}"/>
+                        <DataGridTextColumn Header="OEM N°" Binding="{Binding OEM}"/>
+                        <DataGridTextColumn Header="Ref Fournisseur" Binding="{Binding RefFournisseur}"/>
+                        <DataGridTextColumn Header="Désignation" Width="200" Binding="{Binding Designation}"/>
+                        <DataGridTextColumn Header="Quantité" Binding="{Binding Quantite}"/>
+                        <DataGridTextColumn Header="Prix Unit" Binding="{Binding PrixUnit,StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total,StringFormat={}{0:N2}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Margin="10" 
+                  Width="450" 
+                  TextElement.FontSize="18"
+                  HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="30" Text="Total" />
+                    <TextBlock Height="30" Text="{Binding TotalQuantite}" Grid.Column="1"/>
+                    <TextBlock Height="30" Text="{Binding TotalPrix,StringFormat={}{0:N2}}" Grid.Column="2"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </MaterialDesign:DialogHost>
+    
+</UserControl>

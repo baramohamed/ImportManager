@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19fdffef2eff4b489062e920ddb3439c" Name="Diagram1" ZoomLevel="94" ShowGrid="false" SnapToGrid="true" DisplayType="false" >
+        <EntityTypeShape EntityType="Model.Importation" Width="1.875" PointX="9.625" PointY="85.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Entreprise" Width="2" PointX="6.125" PointY="91.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Facture" Width="1.5" PointX="23.125" PointY="110.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LigneFacture" Width="2.125" PointX="31.625" PointY="116.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Personne" Width="1.5" PointX="1.25" PointY="89.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FactureFrais" Width="1.5" PointX="19" PointY="114.125" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.FactureFrais" />
+        <EntityTypeShape EntityType="Model.Port" Width="1.5" PointX="40" PointY="121.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AgenceBanque" Width="2.125" PointX="21.625" PointY="87.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Banque" Width="1.5" PointX="12.625" PointY="97.875" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.Banque" />
+        <EntityTypeShape EntityType="Model.Transit" Width="1.5" PointX="10.375" PointY="97.875" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.Transit" />
+        <EntityTypeShape EntityType="Model.Fournisseur" Width="1.5" PointX="14.875" PointY="97.875" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.Fournisseur" />
+        <EntityTypeShape EntityType="Model.FactureProforma" Width="1.875" PointX="27.5" PointY="119.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FactureDefinitive" Width="1.75" PointX="23.75" PointY="119.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Commande" Width="1.5" PointX="33.375" PointY="114.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Offre" Width="1.5" PointX="31.875" PointY="119.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.ImportationFactureProforma" />
+        <AssociationConnector Association="Model.ImportationFactureDefinitive" />
+        <AssociationConnector Association="Model.ImportationBanque" />
+        <AssociationConnector Association="Model.ImportationBanque1" ManuallyRouted="true" >
+          <ConnectorPoint PointX="12.25" PointY="6.1752893945312515" />
+          <ConnectorPoint PointX="13.469588680690933" PointY="6.1752893945312515" />
+          <ConnectorPoint PointX="13.469588680690933" PointY="8.8077522350394553" />
+          <ConnectorPoint PointX="15.514528304077173" PointY="8.8077522350394553" />
+          <ConnectorPoint PointX="15.681194970743841" PointY="8.8077522350394553" />
+          <ConnectorPoint PointX="15.945723274821011" PointY="8.8077522350394553" />
+          <ConnectorPoint PointX="15.945723274821011" PointY="8.4033821614583335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model.Catalogue" Width="1.5" PointX="20.625" PointY="101" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Article" Width="1.5" PointX="43.25" PointY="91.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.LigneFactureArticle" />
+        <AssociationConnector Association="Model.CatalogueArticle" />
+        <EntityTypeShape EntityType="Model.Importateur" Width="1.5" PointX="8.125" PointY="97.875" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.Importateur" />
+        <AssociationConnector Association="Model.BanqueAgence" />
+        <AssociationConnector Association="Model.FactureProformaPortEmbarquement" />
+        <AssociationConnector Association="Model.FactureProformaPortDebarquement" />
+        <EntityTypeShape EntityType="Model.Section" Width="1.5" PointX="52.375" PointY="95.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Chapitre" Width="1.5" PointX="54.625" PointY="95" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Position" Width="1.5" PointX="56.875" PointY="94.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SousPosition" Width="1.5" PointX="55.875" PointY="89.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.SectionChapitre" />
+        <EntityTypeShape EntityType="Model.Adresse" Width="1.5" PointX="26.625" PointY="108.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AdresseLocale" Width="1.5" PointX="29.625" PointY="111.25" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.AdresseLocale" />
+        <EntityTypeShape EntityType="Model.Wilaya" Width="1.5" PointX="30.25" PointY="103.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.AdresseLocaleWilaya" />
+        <AssociationConnector Association="Model.EntrepriseAdresse1" />
+        <AssociationConnector Association="Model.EntrepriseAdresse2" />
+        <EntityTypeShape EntityType="Model.FactureDeclaree" Width="1.5" PointX="19.75" PointY="117.625" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.FactureDeclaree" />
+        <EntityTypeShape EntityType="Model.FactureNonDeclaree" Width="1.625" PointX="17.25" PointY="117.625" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.FactureNonDeclaree" />
+        <EntityTypeShape EntityType="Model.FactureTransit" Width="1.5" PointX="21.75" PointY="114.125" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.FactureTransit" />
+        <AssociationConnector Association="Model.FactureTransitFactureNonDeclaree" />
+        <EntityTypeShape EntityType="Model.TaxeDouanier" Width="2" PointX="14.875" PointY="83" IsExpanded="true" />
+        <AssociationConnector Association="Model.FactureTransitFrais" />
+        <AssociationConnector Association="Model.ImportationD10" />
+        <AssociationConnector Association="Model.FactureDefinitivePortEmbarquement" />
+        <AssociationConnector Association="Model.FactureDefinitivePortDebarquement" />
+        <AssociationConnector Association="Model.ChapitrePosition" />
+        <AssociationConnector Association="Model.PositionSousPosition" />
+        <EntityTypeShape EntityType="Model.Connaissement" Width="1.5" PointX="4" PointY="88.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Fichier" Width="1.5" PointX="23.25" PointY="89.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Conteneur" Width="1.5" PointX="3.75" PointY="85.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.ConnaissementConteneur" />
+        <EntityTypeShape EntityType="Model.CompagnieMaritime" Width="1.5" PointX="4.375" PointY="97.875" IsExpanded="true" />
+        <InheritanceConnector EntityType="Model.CompagnieMaritime" />
+        <AssociationConnector Association="Model.ConnaissementCompagnieMaritime" />
+        <AssociationConnector Association="Model.ConnaissementFichierJoint" />
+        <AssociationConnector Association="Model.FactureFichier" />
+        <AssociationConnector Association="Model.D10Fichier" />
+        <AssociationConnector Association="Model.EntrepriseLogo" />
+        <AssociationConnector Association="Model.ImportateurCatalogue" />
+        <AssociationConnector Association="Model.ImportationFrais" />
+        <EntityTypeShape EntityType="Model.ReferenceFournisseur" Width="1.5" PointX="37.75" PointY="88.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FournisseurReferenceFournisseur" />
+        <AssociationConnector Association="Model.ReferenceFournisseurArticle" />
+        <EntityTypeShape EntityType="Model.Pays" Width="1.5" PointX="41" PointY="103.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.PaysAdresse" />
+        <EntityTypeShape EntityType="Model.TypeConteneur" Width="1.5" PointX="3.25" PointY="83.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.ConteneurTypeConteneur" />
+        <EntityTypeShape EntityType="Model.ModeReglement" Width="1.5" PointX="14.5" PointY="111.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeEntreprise" Width="1.5" PointX="0.625" PointY="95.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.RaisonSocialeEntreprise" />
+        <EntityTypeShape EntityType="Model.StatutJuridique" Width="1.5" PointX="1.25" PointY="93.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.StatutJuridiqueEntreprise" />
+        <EntityTypeShape EntityType="Model.Devise" Width="1.5" PointX="36.75" PointY="106.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.PaysDevise" />
+        <EntityTypeShape EntityType="Model.MotifFacture" Width="1.5" PointX="15.875" PointY="114.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FactureFraisMotif" />
+        <AssociationConnector Association="Model.PortPays" />
+        <EntityTypeShape EntityType="Model.UQN" Width="1.5" PointX="52.5" PointY="91.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.SousPositionUQN" />
+        <AssociationConnector Association="Model.ImportationBanqueImportateur" />
+        <AssociationConnector Association="Model.ImportationBanqueFournisseur" />
+        <EntityTypeShape EntityType="Model.Activite" Width="1.5" PointX="7.75" PointY="88.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.ImportateurActivite" />
+        <AssociationConnector Association="Model.ImportationActivite" />
+        <EntityTypeShape EntityType="Model.Produit" Width="1.5" PointX="53.875" PointY="84.875" />
+        <EntityTypeShape EntityType="Model.Attribut" Width="1.5" PointX="50.125" PointY="81.375" />
+        <EntityTypeShape EntityType="Model.Valeur" Width="1.5" PointX="45.75" PointY="83.75" />
+        <AssociationConnector Association="Model.PositionProduit" />
+        <AssociationConnector Association="Model.AttributsProduit" />
+        <AssociationConnector Association="Model.ArticleProduit" />
+        <AssociationConnector Association="Model.ValeursAttribut" />
+        <AssociationConnector Association="Model.ArticleValeur" />
+        <AssociationConnector Association="Model.ContactEntreprise" />
+        <EntityTypeShape EntityType="Model.LigneCommande" Width="1.5" PointX="38.75" PointY="114.375" />
+        <AssociationConnector Association="Model.ArticleLigneCommande" />
+        <AssociationConnector Association="Model.CommandeLigneCommande" />
+        <EntityTypeShape EntityType="Model.FactureFournisseur" Width="1.5" PointX="27.625" PointY="114.375" />
+        <InheritanceConnector EntityType="Model.FactureFournisseur" />
+        <AssociationConnector Association="Model.LigneFactureFournisseur" />
+        <InheritanceConnector EntityType="Model.FactureDefinitive" />
+        <InheritanceConnector EntityType="Model.FactureProforma" />
+        <InheritanceConnector EntityType="Model.Offre" />
+        <InheritanceConnector EntityType="Model.Commande" />
+        <AssociationConnector Association="Model.ImportationFactureTransit" />
+        <EntityTypeShape EntityType="Model.Paiement" Width="1.5" PointX="15" PointY="108.625" />
+        <AssociationConnector Association="Model.PaiementModeReglement" />
+        <AssociationConnector Association="Model.PaiementDevise" />
+        <EntityTypeShape EntityType="Model.Echeance" Width="1.5" PointX="12" PointY="109" />
+        <EntityTypeShape EntityType="Model.TypeEcheance" Width="1.5" PointX="12" PointY="105.625" />
+        <AssociationConnector Association="Model.EcheanceTypeEcheance" />
+        <AssociationConnector Association="Model.EcheancePaiement" />
+        <AssociationConnector Association="Model.FacturePaiement" />
+        <AssociationConnector Association="Model.FactureEcheance" />
+        <AssociationConnector Association="Model.PaiementFichier" />
+        <AssociationConnector Association="Model.TaxeDouanierPaiement" />
+        <EntityTypeShape EntityType="Model.Utilisateur" Width="1.5" PointX="7.625" PointY="81.75" />
+        <AssociationConnector Association="Model.ImportationCommande" />
+        <AssociationConnector Association="Model.ImportationOffre" />
+        <AssociationConnector Association="Model.CatalogueProduit" />
+        <AssociationConnector Association="Model.ImportationPaysOrigine" />
+        <AssociationConnector Association="Model.FactureProformaModeReglement" />
+        <AssociationConnector Association="Model.FactureProformaDevise" />
+        <EntityTypeShape EntityType="Model.Financement" Width="1.5" PointX="11.5" PointY="82.25" />
+        <AssociationConnector Association="Model.ImportationFinancement" />
+        <EntityTypeShape EntityType="Model.DestinationProduit" Width="1.5" PointX="6.875" PointY="84.25" />
+        <AssociationConnector Association="Model.ImportationDestinationProduit" />
+        <EntityTypeShape EntityType="Model.RecetteImpots" Width="1.5" PointX="27.5" PointY="104.75" />
+        <AssociationConnector Association="Model.WilayaRecetteImpots" />
+        <AssociationConnector Association="Model.ImportationRecetteImpots" />
+        <AssociationConnector Association="Model.FactureDefinitiveModeReglement" />
+        <AssociationConnector Association="Model.FactureDefinitiveDevise" />
+        <AssociationConnector Association="Model.ImportationImportateur" />
+        <AssociationConnector Association="Model.ImportationFournisseur" />
+        <AssociationConnector Association="Model.ImportationTransit" />
+        <AssociationConnector Association="Model.EntrepriseMotifFacture" />
+        <AssociationConnector Association="Model.FactureFraisEntreprise" />
+        <AssociationConnector Association="Model.ImportationArrivage" />
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="6.625" PointY="86.25" />
+        <AssociationConnector Association="Model.DocumentFichier" />
+        <AssociationConnector Association="Model.ImportationCertificatDeConformite" />
+        <AssociationConnector Association="Model.CertificatDOrigine" />
+        <AssociationConnector Association="Model.ImportationListeDeColissage" />
+        <AssociationConnector Association="Model.ImportationConnaissement" />
+        <EntityTypeShape EntityType="Model.CompteBancaire" Width="1.5" PointX="1.375" PointY="98.5" />
+        <AssociationConnector Association="Model.EntrepriseCompteBancaire" />
+        <AssociationConnector Association="Model.BanqueCompteBancaire" />
+        <AssociationConnector Association="Model.EntrepriseGerant" />
+        <AssociationConnector Association="Model.PersonneAdresse" />
+        <EntityTypeShape EntityType="Model.TypeActivite" Width="1.5" PointX="1.375" PointY="87.5" />
+        <AssociationConnector Association="Model.EntrepriseTypeActivite" />
+        <EntityTypeShape EntityType="Model.Incoterm" Width="1.5" PointX="25.625" PointY="124.5" />
+        <AssociationConnector Association="Model.FactureDefinitiveIncoterm" />
+        <AssociationConnector Association="Model.FactureProformaIncoterm" />
+        <AssociationConnector Association="Model.AttributPereFils" />
+        <AssociationConnector Association="Model.ValeurPereFils" />
+        <EntityTypeShape EntityType="Model.Packaging" Width="1.5" PointX="46.25" PointY="95" />
+        <AssociationConnector Association="Model.ArticlePackaging" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

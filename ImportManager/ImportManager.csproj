@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{950FC791-245E-4DC7-9E31-5FEA87A15F79}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImportManager</RootNamespace>
+    <AssemblyName>ImportManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Developpez.Dotnet, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dvp-net.0.6.1\lib\net40\Developpez.Dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="Supremes, Version=1.0.0.6474, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dcsoup.1.0.0\lib\net45\Supremes.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Core\Base\BaseViewModel.cs" />
+    <Compile Include="Core\Base\OperationVM.cs" />
+    <Compile Include="Core\Base\RelayCommand.cs" />
+    <Compile Include="Core\InitDB.cs" />
+    <Compile Include="Core\IoC\IoCContainer.cs" />
+    <Compile Include="Core\Logic\CatalogManager.cs" />
+    <Compile Include="Core\Logic\EntreprisesManager.cs" />
+    <Compile Include="Core\ViewModels\CataloguePageViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\AttributViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\EntrepriseVMs\TransitVM.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\EntrepriseVMs\BanqueVM.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\EntrepriseVMs\FournisseurVM.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\EntrepriseVMs\ImportateurVM.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\EntrepriseVMs\EntrepriseVM.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\PositionTarifaireViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\ProduitViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\InitialisationPageVM.cs" />
+    <Compile Include="Core\ViewModels\Parametres.cs" />
+    <Compile Include="Core\ViewModels\ParametresViewModels\ParametresAvancesPageVM.cs" />
+    <Compile Include="Core\ViewModels\ParametresViewModels\UtilisateursPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\SelectCompanyPageVM.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="View\Controls\FichesEntreprises\FicheGerant.xaml.cs">
+      <DependentUpon>FicheGerant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FichePersonne.xaml.cs">
+      <DependentUpon>FichePersonne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FicheTransit.xaml.cs">
+      <DependentUpon>FicheTransit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FicheBanque.xaml.cs">
+      <DependentUpon>FicheBanque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FicheFournisseur.xaml.cs">
+      <DependentUpon>FicheFournisseur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FicheImportateur.xaml.cs">
+      <DependentUpon>FicheImportateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\OffreControl.xaml.cs">
+      <DependentUpon>OffreControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichiersControl.xaml.cs">
+      <DependentUpon>FichiersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Core\Enums\Enums.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\BilanPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\CloturationPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\ArrivageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\OffreViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\CommandeViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\DedouanementPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\DomiciliationPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\ImportationPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\LigneCommandeVM.cs" />
+    <Compile Include="Core\ViewModels\ParametresViewModels\EntreprisesPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\FactureDefinitiveViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\FactureTransitViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\FraisViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\FactureProformaViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\ArticleViewModel.cs" />
+    <Compile Include="Core\ViewModels\ControlViewModels\FactureFraisViewModel.cs" />
+    <Compile Include="Core\ViewModels\EntityViewModels\LigneFactureViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationsPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ImportationViewModels\NegociationPageViewModel.cs" />
+    <Compile Include="Core\ViewModels\ParametresViewModels\CatalogueParametresPageViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="SampleData\Importations\Importations.xaml.cs">
+      <DependentUpon>Importations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\ViewModels\ControlViewModels\FactureViewModel.cs" />
+    <Compile Include="View\Controls\AdresseControl.xaml.cs">
+      <DependentUpon>AdresseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\ArticleFinder.xaml.cs">
+      <DependentUpon>ArticleFinder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\ArrivageControl.xaml.cs">
+      <DependentUpon>ArrivageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\FactureFraisControl.xaml.cs">
+      <DependentUpon>FactureFraisControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\FactureTransitControl.xaml.cs">
+      <DependentUpon>FactureTransitControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\FactureDefinitiveControl.xaml.cs">
+      <DependentUpon>FactureDefinitiveControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\FactureProformaControl.xaml.cs">
+      <DependentUpon>FactureProformaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FactureControls\CommandeControl.xaml.cs">
+      <DependentUpon>CommandeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SearchBox.xaml.cs">
+      <DependentUpon>SearchBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ArticlesPage.xaml.cs">
+      <DependentUpon>ArticlesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\InitialisationPage.xaml.cs">
+      <DependentUpon>InitialisationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\AuthentificationPage.xaml.cs">
+      <DependentUpon>AuthentificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\CataloguePage.xaml.cs">
+      <DependentUpon>CataloguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\EcheanceControl.xaml.cs">
+      <DependentUpon>EcheanceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\EcheancesPage.xaml.cs">
+      <DependentUpon>EcheancesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\SelectCompanyPage.xaml.cs">
+      <DependentUpon>SelectCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PaiementControl.xaml.cs">
+      <DependentUpon>PaiementControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\CatalogueParametresPage.xaml.cs">
+      <DependentUpon>CatalogueParametresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\EntreprisesPage.xaml.cs">
+      <DependentUpon>EntreprisesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\FicheAttribut.xaml.cs">
+      <DependentUpon>FicheAttribut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\FichesEntreprises\FicheEntreprise.xaml.cs">
+      <DependentUpon>FicheEntreprise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\FicheProduit.xaml.cs">
+      <DependentUpon>FicheProduit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\BilanPage.xaml.cs">
+      <DependentUpon>BilanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\CloturationPage.xaml.cs">
+      <DependentUpon>CloturationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\DedouanementPage.xaml.cs">
+      <DependentUpon>DedouanementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\DomiciliationPage.xaml.cs">
+      <DependentUpon>DomiciliationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\ImportationPage.xaml.cs">
+      <DependentUpon>ImportationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\ImportationsPage.xaml.cs">
+      <DependentUpon>ImportationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ImportationPages\NegociationPage.xaml.cs">
+      <DependentUpon>NegociationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Main\ParametresPage.xaml.cs">
+      <DependentUpon>ParametresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\ParametresAvancesPage.xaml.cs">
+      <DependentUpon>ParametresAvancesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\ParametresPages\UtilisateursPage.xaml.cs">
+      <DependentUpon>UtilisateursPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TemplateSelector\MainPageTemplateSelector.cs" />
+    <Compile Include="View\TemplateSelector\EntrepriseTemplateSelector.cs" />
+    <Compile Include="View\TemplateSelector\OperationTemplateSelector.cs" />
+    <Compile Include="View\TemplateSelector\IOButtonContentSelector.cs" />
+    <Compile Include="View\TemplateSelector\FactureTemplateSelector.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="SampleData\Importations\Importations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\AdresseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\ArticleFinder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\FactureControls\ArrivageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheGerant.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FichePersonne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheTransit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheBanque.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheFournisseur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheImportateur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FactureControls\OffreControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FactureControls\FactureFraisControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\FactureControls\FactureTransitControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FactureControls\FactureDefinitiveControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FactureControls\FactureProformaControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\FactureControls\CommandeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\FichiersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\SearchBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ArticlesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\InitialisationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\AuthentificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\CataloguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\EcheanceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\EcheancesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\SelectCompanyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PaiementControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\CatalogueParametresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\EntreprisesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\FicheAttribut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\FichesEntreprises\FicheEntreprise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\FicheProduit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\BilanPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\CloturationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\DedouanementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\DomiciliationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\ImportationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\ImportationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ImportationPages\NegociationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Main\ParametresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\ParametresAvancesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\ParametresPages\UtilisateursPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Shared\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Shared\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="SampleData\Importations\Importations.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\PlusBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\MinusCircleBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\SettingsBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{356D7849-4A8D-4ECE-A12B-51B7E43B393C}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Icons\ExcelIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\Images\PortAlger.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

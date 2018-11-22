@@ -1,0 +1,1349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Importations">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Importation)">
+        <MappingFragment StoreEntitySet="Importations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="DateDebarquement" ColumnName="DateDebarquement" />
+          <ScalarProperty Name="DateNegociation" ColumnName="DateNegociation" />
+          <ScalarProperty Name="DateDomiciliation" ColumnName="DateDomiciliation" />
+          <ScalarProperty Name="DateDedouanement" ColumnName="DateDedouanement" />
+          <ScalarProperty Name="DateCloturation" ColumnName="DateCloturation" />
+          <ScalarProperty Name="DateArrivee" ColumnName="DateArrivee" />
+          <ScalarProperty Name="CoursDomiciliation" ColumnName="CoursDomiciliation" />
+          <ScalarProperty Name="CoursDedouanement" ColumnName="CoursDedouanement" />
+          <ScalarProperty Name="CoursAchat" ColumnName="CoursAchat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entreprises">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Entreprise)">
+        <MappingFragment StoreEntitySet="Entreprises">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RegistreCommerce" ColumnName="RegistreCommerce" />
+          <ScalarProperty Name="Denomination" ColumnName="Denomination" />
+          <ScalarProperty Name="DenominationAR" ColumnName="DenominationAR" />
+          <ScalarProperty Name="Capital" ColumnName="Capital" />
+          <ScalarProperty Name="NumArticle" ColumnName="NumArticle" />
+          <ScalarProperty Name="NIF" ColumnName="NIF" />
+          <ScalarProperty Name="NIS" ColumnName="NIS" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="SiteWeb" ColumnName="SiteWeb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Banque)">
+        <MappingFragment StoreEntitySet="Entreprises_Banque">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CompagnieMaritime)">
+        <MappingFragment StoreEntitySet="Entreprises_CompagnieMaritime">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Importateur)">
+        <MappingFragment StoreEntitySet="Entreprises_Importateur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Fournisseur)">
+        <MappingFragment StoreEntitySet="Entreprises_Fournisseur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Transit)">
+        <MappingFragment StoreEntitySet="Entreprises_Transit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factures">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Facture)">
+        <MappingFragment StoreEntitySet="Factures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumFacture" ColumnName="NumFacture" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureFournisseur)">
+        <MappingFragment StoreEntitySet="Factures_FactureFournisseur">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureProforma)">
+        <MappingFragment StoreEntitySet="Factures_FactureProforma">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateEmbarquement" ColumnName="DateEmbarquement" />
+          <ScalarProperty Name="DateDebarquement" ColumnName="DateDebarquement" />
+          <ScalarProperty Name="NPredomiciliation" ColumnName="NPredomiciliation" />
+          <ScalarProperty Name="DatePredomiciliation" ColumnName="DatePredomiciliation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureDefinitive)">
+        <MappingFragment StoreEntitySet="Factures_FactureDefinitive">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumDomiciliation" ColumnName="NumDomiciliation" />
+          <ScalarProperty Name="DateDomiciliation" ColumnName="DateDomiciliation" />
+          <ScalarProperty Name="DateEmbarquement" ColumnName="DateEmbarquement" />
+          <ScalarProperty Name="DateDebarquement" ColumnName="DateDebarquement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureTransit)">
+        <MappingFragment StoreEntitySet="Factures_FactureTransit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumDossier" ColumnName="NumDossier" />
+          <ScalarProperty Name="NumRepertoire" ColumnName="NumRepertoire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureFrais)">
+        <MappingFragment StoreEntitySet="Factures_FactureFrais">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Remarque" ColumnName="Remarque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureNonDeclaree)">
+        <MappingFragment StoreEntitySet="Factures_FactureNonDeclaree">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.FactureDeclaree)">
+        <MappingFragment StoreEntitySet="Factures_FactureDeclaree">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TauxTVA" ColumnName="TauxTVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Commande)">
+        <MappingFragment StoreEntitySet="Factures_Commande">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Offre)">
+        <MappingFragment StoreEntitySet="Factures_Offre">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LigneFactures">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.LigneFacture)">
+        <MappingFragment StoreEntitySet="LigneFactures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PoidsUnitaire" ColumnName="PoidsUnitaire" />
+          <ScalarProperty Name="PrixUnitaire" ColumnName="PrixUnitaire" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="VolumeUnitaire" ColumnName="VolumeUnitaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personnes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Personne)">
+        <MappingFragment StoreEntitySet="Personnes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Titre" ColumnName="Titre" />
+          <ScalarProperty Name="Fonction" ColumnName="Fonction" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="NIS" ColumnName="NIS" />
+          <ScalarProperty Name="NIF" ColumnName="NIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ports">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Port)">
+        <MappingFragment StoreEntitySet="Ports">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgenceBanques">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AgenceBanque)">
+        <MappingFragment StoreEntitySet="AgenceBanques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Catalogues">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Catalogue)">
+        <MappingFragment StoreEntitySet="Catalogues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Article)">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="OEM" ColumnName="OEM" />
+          <ScalarProperty Name="PoidsNet" ColumnName="PoidsNet" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Section)">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapitres">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Chapitre)">
+        <MappingFragment StoreEntitySet="Chapitres">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Position)">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SousPositions">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.SousPosition)">
+        <MappingFragment StoreEntitySet="SousPositions">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="GU" ColumnName="GU" />
+          <ScalarProperty Name="TVA" ColumnName="TVA" />
+          <ScalarProperty Name="DD" ColumnName="DD" />
+          <ScalarProperty Name="Cle" ColumnName="Cle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adresses">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Adresse)">
+        <MappingFragment StoreEntitySet="Adresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LigneAdresse" ColumnName="LigneAdresse" />
+          <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AdresseLocale)">
+        <MappingFragment StoreEntitySet="Adresses_AdresseLocale">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Daira" ColumnName="Daira" />
+          <ScalarProperty Name="Commune" ColumnName="Commune" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wilayas">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Wilaya)">
+        <MappingFragment StoreEntitySet="Wilayas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxeDouaniers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TaxeDouanier)">
+        <MappingFragment StoreEntitySet="TaxeDouaniers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumD10" ColumnName="NumD10" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MontantFactureDA" ColumnName="MontantFactureDA" />
+          <ScalarProperty Name="MontantFretDA" ColumnName="MontantFretDA" />
+          <ScalarProperty Name="MontantAssurancesDA" ColumnName="MontantAssurancesDA" />
+          <ScalarProperty Name="MontantFraisDA" ColumnName="MontantFraisDA" />
+          <ScalarProperty Name="TotalRedevances" ColumnName="TotalRedevances" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connaissements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Connaissement)">
+        <MappingFragment StoreEntitySet="Connaissements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumBL" ColumnName="NumBL" />
+          <ScalarProperty Name="NumVoyage" ColumnName="NumVoyage" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fichiers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Fichier)">
+        <MappingFragment StoreEntitySet="Fichiers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomFichier" ColumnName="NomFichier" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Chemin" ColumnName="Chemin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conteneurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Conteneur)">
+        <MappingFragment StoreEntitySet="Conteneurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+          <ScalarProperty Name="Poids" ColumnName="Poids" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReferenceFournisseurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ReferenceFournisseur)">
+        <MappingFragment StoreEntitySet="ReferenceFournisseurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pays">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Pays)">
+        <MappingFragment StoreEntitySet="Pays">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesConteneurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeConteneur)">
+        <MappingFragment StoreEntitySet="TypesConteneurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModesReglement">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ModeReglement)">
+        <MappingFragment StoreEntitySet="ModesReglement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesEntreprises">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeEntreprise)">
+        <MappingFragment StoreEntitySet="TypesEntreprises">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatutsJuridiques">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.StatutJuridique)">
+        <MappingFragment StoreEntitySet="StatutsJuridiques">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devises">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Devise)">
+        <MappingFragment StoreEntitySet="Devises">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MotifFactures">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.MotifFacture)">
+        <MappingFragment StoreEntitySet="MotifFactures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UQNs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.UQN)">
+        <MappingFragment StoreEntitySet="UQNs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Activites">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Activite)">
+        <MappingFragment StoreEntitySet="Activites">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produits">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Produit)">
+        <MappingFragment StoreEntitySet="Produits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DesignationFR" ColumnName="DesignationFR" />
+          <ScalarProperty Name="DesignationEN" ColumnName="DesignationEN" />
+          <ScalarProperty Name="DesignationAR" ColumnName="DesignationAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attributs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Attribut)">
+        <MappingFragment StoreEntitySet="Attributs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DesignationFR" ColumnName="DesignationFR" />
+          <ScalarProperty Name="DesignationEN" ColumnName="DesignationEN" />
+          <ScalarProperty Name="DesignationAR" ColumnName="DesignationAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Valeurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Valeur)">
+        <MappingFragment StoreEntitySet="Valeurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ValeurFR" ColumnName="ValeurFR" />
+          <ScalarProperty Name="ValeurAR" ColumnName="ValeurAR" />
+          <ScalarProperty Name="ValeurEN" ColumnName="ValeurEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LigneCommandes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.LigneCommande)">
+        <MappingFragment StoreEntitySet="LigneCommandes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paiements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Paiement)">
+        <MappingFragment StoreEntitySet="Paiements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Echeances">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Echeance)">
+        <MappingFragment StoreEntitySet="Echeances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateEcheance" ColumnName="DateEcheance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeEcheances">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeEcheance)">
+        <MappingFragment StoreEntitySet="TypeEcheances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Utilisateur)">
+        <MappingFragment StoreEntitySet="Utilisateurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NomUtilisateur" ColumnName="NomUtilisateur" />
+          <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Financements">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Financement)">
+        <MappingFragment StoreEntitySet="Financements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DestinationProduits">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DestinationProduit)">
+        <MappingFragment StoreEntitySet="DestinationProduits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecetteImpots">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.RecetteImpots)">
+        <MappingFragment StoreEntitySet="RecetteImpots">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Document)">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComptesBancaires">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.CompteBancaire)">
+        <MappingFragment StoreEntitySet="ComptesBancaires">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumCompte" ColumnName="NumCompte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesActivites">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.TypeActivite)">
+        <MappingFragment StoreEntitySet="TypesActivites">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Incoterms">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Incoterm)">
+        <MappingFragment StoreEntitySet="Incoterms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ImportationFactureProforma" TypeName="Model.ImportationFactureProforma" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Importation_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Importation_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationFactureDefinitive" TypeName="Model.ImportationFactureDefinitive" StoreEntitySet="Factures_FactureDefinitive">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Importation_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Importation_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AssocationASupprimer1" TypeName="Model.AssocationASupprimer1" StoreEntitySet="Entreprises_Banque">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="AssocationASupprimer1_Banque_Id" />
+      </EndProperty>
+      <EndProperty Name="Banque">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="AssocationASupprimer1_Banque_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LigneFactureArticle" TypeName="Model.LigneFactureArticle" StoreEntitySet="LigneFactures">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Article_Id" />
+      </EndProperty>
+      <EndProperty Name="LigneFacture">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Article_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueArticle" TypeName="Model.CatalogueArticle" StoreEntitySet="Articles">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="Id" ColumnName="Catalogue_Id" />
+      </EndProperty>
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Catalogue_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AssociationASupprimer2" TypeName="Model.AssociationASupprimer2" StoreEntitySet="Entreprises_Banque">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="AssociationASupprimer2_Banque_Id" />
+      </EndProperty>
+      <EndProperty Name="Banque">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="AssociationASupprimer2_Banque_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BanqueAgence" TypeName="Model.BanqueAgence" StoreEntitySet="AgenceBanques">
+      <EndProperty Name="Banque">
+        <ScalarProperty Name="Id" ColumnName="Banque_Id" />
+      </EndProperty>
+      <EndProperty Name="AgenceBanque">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Banque_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureProformaPortEmbarquement" TypeName="Model.FactureProformaPortEmbarquement" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="Port">
+        <ScalarProperty Name="Id" ColumnName="PortEmbarquement_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PortEmbarquement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureProformaPortDebarquement" TypeName="Model.FactureProformaPortDebarquement" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="Port">
+        <ScalarProperty Name="Id" ColumnName="PortDebarquement_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PortDebarquement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SectionChapitre" TypeName="Model.SectionChapitre" StoreEntitySet="Chapitres">
+      <EndProperty Name="Section">
+        <ScalarProperty Name="Code" ColumnName="Section_Code" />
+      </EndProperty>
+      <EndProperty Name="Chapitre">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="Section_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AdresseLocaleWilaya" TypeName="Model.AdresseLocaleWilaya" StoreEntitySet="Adresses_AdresseLocale">
+      <EndProperty Name="Wilaya">
+        <ScalarProperty Name="Id" ColumnName="Wilaya_Id" />
+      </EndProperty>
+      <EndProperty Name="AdresseLocale">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Wilaya_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseAdresse1" TypeName="Model.EntrepriseAdresse1" StoreEntitySet="Adresses">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="EntrepriseAdresse1_Adresse_Id" />
+      </EndProperty>
+      <EndProperty Name="Adresse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EntrepriseAdresse1_Adresse_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseAdresse2" TypeName="Model.EntrepriseAdresse2" StoreEntitySet="Adresses">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="EntrepriseAdresse2_Adresse_Id" />
+      </EndProperty>
+      <EndProperty Name="Adresse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EntrepriseAdresse2_Adresse_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureTransitFactureNonDeclaree" TypeName="Model.FactureTransitFactureNonDeclaree" StoreEntitySet="Factures_FactureNonDeclaree">
+      <EndProperty Name="FactureTransit">
+        <ScalarProperty Name="Id" ColumnName="FactureTransitFactureNonDeclaree_FactureNonDeclaree_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureNonDeclaree">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureTransitFactureNonDeclaree_FactureNonDeclaree_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureTransitFrais" TypeName="Model.FactureTransitFrais" StoreEntitySet="Factures_FactureDeclaree">
+      <EndProperty Name="FactureTransit">
+        <ScalarProperty Name="Id" ColumnName="FactureTransitFrais_FactureDeclaree_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureDeclaree">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureTransitFrais_FactureDeclaree_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationD10" TypeName="Model.ImportationD10" StoreEntitySet="TaxeDouaniers">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationD10_D10_Id" />
+      </EndProperty>
+      <EndProperty Name="D10">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureDefinitivePortEmbarquement" TypeName="Model.FactureDefinitivePortEmbarquement" StoreEntitySet="Ports">
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="FactureDefinitivePortEmbarquement_Port_Id" />
+      </EndProperty>
+      <EndProperty Name="Port">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureDefinitivePortEmbarquement_Port_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureDefinitivePortDebarquement" TypeName="Model.FactureDefinitivePortDebarquement" StoreEntitySet="Ports">
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="FactureDefinitivePortDebarquement_Port_Id" />
+      </EndProperty>
+      <EndProperty Name="Port">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureDefinitivePortDebarquement_Port_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChapitrePosition" TypeName="Model.ChapitrePosition" StoreEntitySet="Positions">
+      <EndProperty Name="Chapitre">
+        <ScalarProperty Name="Code" ColumnName="Chapitre_Code" />
+      </EndProperty>
+      <EndProperty Name="Position">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="Chapitre_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PositionSousPosition" TypeName="Model.PositionSousPosition" StoreEntitySet="SousPositions">
+      <EndProperty Name="Position">
+        <ScalarProperty Name="Code" ColumnName="Position_Code" />
+      </EndProperty>
+      <EndProperty Name="SousPosition">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="Position_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConnaissementConteneur" TypeName="Model.ConnaissementConteneur" StoreEntitySet="Conteneurs">
+      <EndProperty Name="Connaissement">
+        <ScalarProperty Name="Id" ColumnName="Connaissement_Id" />
+      </EndProperty>
+      <EndProperty Name="Conteneur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Connaissement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConnaissementCompagnieMaritime" TypeName="Model.ConnaissementCompagnieMaritime" StoreEntitySet="Connaissements">
+      <EndProperty Name="CompagnieMaritime">
+        <ScalarProperty Name="Id" ColumnName="CompagnieMaritime_Id" />
+      </EndProperty>
+      <EndProperty Name="Connaissement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="CompagnieMaritime_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConnaissementFichierJoint" TypeName="Model.ConnaissementFichierJoint" StoreEntitySet="Fichiers">
+      <EndProperty Name="Connaissement">
+        <ScalarProperty Name="Id" ColumnName="ConnaissementFichierJoint_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ConnaissementFichierJoint_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureFichier" TypeName="Model.FactureFichier" StoreEntitySet="Fichiers">
+      <EndProperty Name="Facture">
+        <ScalarProperty Name="Id" ColumnName="FactureFichier_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureFichier_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="D10Fichier" TypeName="Model.D10Fichier" StoreEntitySet="Fichiers">
+      <EndProperty Name="D10">
+        <ScalarProperty Name="Id" ColumnName="D10Fichier_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="D10Fichier_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseLogo" TypeName="Model.EntrepriseLogo" StoreEntitySet="Fichiers">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="EntrepriseLogo_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EntrepriseLogo_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportateurCatalogue" TypeName="Model.ImportateurCatalogue" StoreEntitySet="Catalogues">
+      <EndProperty Name="Importateur">
+        <ScalarProperty Name="Id" ColumnName="Importateur_Id" />
+      </EndProperty>
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Importateur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationFrais" TypeName="Model.ImportationFrais" StoreEntitySet="Factures_FactureFrais">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationFrais_FactureFrais_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureFrais">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ImportationFrais_FactureFrais_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FournisseurReferenceFournisseur" TypeName="Model.FournisseurReferenceFournisseur" StoreEntitySet="ReferenceFournisseurs">
+      <EndProperty Name="Fournisseur">
+        <ScalarProperty Name="Id" ColumnName="Fournisseur_Id" />
+      </EndProperty>
+      <EndProperty Name="ReferenceFournisseur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Fournisseur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ReferenceFournisseurArticle" TypeName="Model.ReferenceFournisseurArticle" StoreEntitySet="ReferenceFournisseurs">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Article_Id" />
+      </EndProperty>
+      <EndProperty Name="ReferenceFournisseur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Article_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaysAdresse" TypeName="Model.PaysAdresse" StoreEntitySet="Adresses">
+      <EndProperty Name="Pays">
+        <ScalarProperty Name="Id" ColumnName="Pays_Id" />
+      </EndProperty>
+      <EndProperty Name="Adresse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Pays_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConteneurTypeConteneur" TypeName="Model.ConteneurTypeConteneur" StoreEntitySet="Conteneurs">
+      <EndProperty Name="TypeConteneur">
+        <ScalarProperty Name="Id" ColumnName="Type_Id" />
+      </EndProperty>
+      <EndProperty Name="Conteneur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Type_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RaisonSocialeEntreprise" TypeName="Model.RaisonSocialeEntreprise" StoreEntitySet="Entreprises">
+      <EndProperty Name="RaisonSociale">
+        <ScalarProperty Name="Id" ColumnName="Type_Id" />
+      </EndProperty>
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Type_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StatutJuridiqueEntreprise" TypeName="Model.StatutJuridiqueEntreprise" StoreEntitySet="Entreprises">
+      <EndProperty Name="StatutJuridique">
+        <ScalarProperty Name="Id" ColumnName="StatutJuridique_Id" />
+      </EndProperty>
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="StatutJuridique_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaysDevise" TypeName="Model.PaysDevise" StoreEntitySet="Pays">
+      <EndProperty Name="Devise">
+        <ScalarProperty Name="Id" ColumnName="Devise_Id" />
+      </EndProperty>
+      <EndProperty Name="Pays">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Devise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureFraisMotif" TypeName="Model.FactureFraisMotif" StoreEntitySet="Factures_FactureFrais">
+      <EndProperty Name="MotifFacture">
+        <ScalarProperty Name="Id" ColumnName="Motif_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureFrais">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Motif_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PortPays" TypeName="Model.PortPays" StoreEntitySet="Ports">
+      <EndProperty Name="Pays">
+        <ScalarProperty Name="Id" ColumnName="Pays_Id" />
+      </EndProperty>
+      <EndProperty Name="Port">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Pays_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SousPositionUQN" TypeName="Model.SousPositionUQN" StoreEntitySet="SousPositions">
+      <EndProperty Name="UQN">
+        <ScalarProperty Name="Id" ColumnName="UQN_Id" />
+      </EndProperty>
+      <EndProperty Name="SousPosition">
+        <ScalarProperty Name="Code" ColumnName="Code" />
+      </EndProperty>
+      <Condition ColumnName="UQN_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationBanqueImportateur" TypeName="Model.ImportationBanqueImportateur" StoreEntitySet="Importations">
+      <EndProperty Name="AgenceBanque">
+        <ScalarProperty Name="Id" ColumnName="BanqueImportateur_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="BanqueImportateur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationBanqueFournisseur" TypeName="Model.ImportationBanqueFournisseur" StoreEntitySet="Importations">
+      <EndProperty Name="AgenceBanque">
+        <ScalarProperty Name="Id" ColumnName="BanqueFournisseur_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="BanqueFournisseur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportateurActivite" TypeName="Model.ImportateurActivite" StoreEntitySet="ImportateurActivite">
+      <EndProperty Name="Importateur">
+        <ScalarProperty Name="Id" ColumnName="ImportateurActivite_Activite_Id" />
+      </EndProperty>
+      <EndProperty Name="Activite">
+        <ScalarProperty Name="Code" ColumnName="Activites_Code" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationActivite" TypeName="Model.ImportationActivite" StoreEntitySet="Importations">
+      <EndProperty Name="Activite">
+        <ScalarProperty Name="Code" ColumnName="Activite_Code" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Activite_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PositionProduit" TypeName="Model.PositionProduit" StoreEntitySet="Produits">
+      <EndProperty Name="SousPosition">
+        <ScalarProperty Name="Code" ColumnName="PositionTarifaire_Code" />
+      </EndProperty>
+      <EndProperty Name="Produit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PositionTarifaire_Code" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AttributsProduit" TypeName="Model.AttributsProduit" StoreEntitySet="AttributsProduit">
+      <EndProperty Name="Produit">
+        <ScalarProperty Name="Id" ColumnName="AttributsProduit_Attribut_Id" />
+      </EndProperty>
+      <EndProperty Name="Attribut">
+        <ScalarProperty Name="Id" ColumnName="Attributs_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ArticleProduit" TypeName="Model.ArticleProduit" StoreEntitySet="Articles">
+      <EndProperty Name="Produit">
+        <ScalarProperty Name="Id" ColumnName="Produit_Id" />
+      </EndProperty>
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Produit_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ValeursAttribut" TypeName="Model.ValeursAttribut" StoreEntitySet="Valeurs">
+      <EndProperty Name="Attribut">
+        <ScalarProperty Name="Id" ColumnName="Attribut_Id" />
+      </EndProperty>
+      <EndProperty Name="Valeur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Attribut_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ArticleValeur" TypeName="Model.ArticleValeur" StoreEntitySet="ArticleValeur">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="ArticleValeur_Valeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Valeur">
+        <ScalarProperty Name="Id" ColumnName="ValeursAttributs_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContactEntreprise" TypeName="Model.ContactEntreprise" StoreEntitySet="Personnes">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Entreprise_Id" />
+      </EndProperty>
+      <EndProperty Name="Personne">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Entreprise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ArticleLigneCommande" TypeName="Model.ArticleLigneCommande" StoreEntitySet="LigneCommandes">
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Article_Id" />
+      </EndProperty>
+      <EndProperty Name="LigneCommande">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Article_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommandeLigneCommande" TypeName="Model.CommandeLigneCommande" StoreEntitySet="LigneCommandes">
+      <EndProperty Name="Commande">
+        <ScalarProperty Name="Id" ColumnName="Commande_Id" />
+      </EndProperty>
+      <EndProperty Name="LigneCommande">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Commande_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LigneFactureFournisseur" TypeName="Model.LigneFactureFournisseur" StoreEntitySet="LigneFactures">
+      <EndProperty Name="FactureFournisseur">
+        <ScalarProperty Name="Id" ColumnName="LigneFactureFournisseur_LigneFacture_Id" />
+      </EndProperty>
+      <EndProperty Name="LigneFacture">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationFactureTransit" TypeName="Model.ImportationFactureTransit" StoreEntitySet="Factures_FactureTransit">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationFactureTransit_FactureTransit_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureTransit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaiementModeReglement" TypeName="Model.PaiementModeReglement" StoreEntitySet="Paiements">
+      <EndProperty Name="ModeReglement">
+        <ScalarProperty Name="Id" ColumnName="ModeReglement_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ModeReglement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaiementDevise" TypeName="Model.PaiementDevise" StoreEntitySet="Paiements">
+      <EndProperty Name="Devise">
+        <ScalarProperty Name="Id" ColumnName="Devise_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Devise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EcheanceTypeEcheance" TypeName="Model.EcheanceTypeEcheance" StoreEntitySet="Echeances">
+      <EndProperty Name="TypeEcheance">
+        <ScalarProperty Name="Id" ColumnName="Type_Id" />
+      </EndProperty>
+      <EndProperty Name="Echeance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Type_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EcheancePaiement" TypeName="Model.EcheancePaiement" StoreEntitySet="Paiements">
+      <EndProperty Name="Echeance">
+        <ScalarProperty Name="Id" ColumnName="EcheancePaiement_Paiement_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EcheancePaiement_Paiement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FacturePaiement" TypeName="Model.FacturePaiement" StoreEntitySet="Paiements">
+      <EndProperty Name="Facture">
+        <ScalarProperty Name="Id" ColumnName="FacturePaiement_Paiement_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FacturePaiement_Paiement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureEcheance" TypeName="Model.FactureEcheance" StoreEntitySet="Echeances">
+      <EndProperty Name="Facture">
+        <ScalarProperty Name="Id" ColumnName="FactureEcheance_Echeance_Id" />
+      </EndProperty>
+      <EndProperty Name="Echeance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="FactureEcheance_Echeance_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaiementFichier" TypeName="Model.PaiementFichier" StoreEntitySet="Fichiers">
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="PaiementFichier_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PaiementFichier_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TaxeDouanierPaiement" TypeName="Model.TaxeDouanierPaiement" StoreEntitySet="Paiements">
+      <EndProperty Name="TaxeDouanier">
+        <ScalarProperty Name="Id" ColumnName="TaxeDouanierPaiement_Paiement_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TaxeDouanierPaiement_Paiement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationCommande" TypeName="Model.ImportationCommande" StoreEntitySet="Factures_Commande">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationCommande_Commande_Id" />
+      </EndProperty>
+      <EndProperty Name="Commande">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationOffre" TypeName="Model.ImportationOffre" StoreEntitySet="Factures_Offre">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationOffre_Offre_Id" />
+      </EndProperty>
+      <EndProperty Name="Offre">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CatalogueProduit" TypeName="Model.CatalogueProduit" StoreEntitySet="Produits">
+      <EndProperty Name="Catalogue">
+        <ScalarProperty Name="Id" ColumnName="Catalogue_Id" />
+      </EndProperty>
+      <EndProperty Name="Produit">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Catalogue_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationPaysOrigine" TypeName="Model.ImportationPaysOrigine" StoreEntitySet="Importations">
+      <EndProperty Name="Pays">
+        <ScalarProperty Name="Id" ColumnName="PaysOrigine_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PaysOrigine_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureProformaModeReglement" TypeName="Model.FactureProformaModeReglement" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="ModeReglement">
+        <ScalarProperty Name="Id" ColumnName="ModeReglement_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ModeReglement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureProformaDevise" TypeName="Model.FactureProformaDevise" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="Devise">
+        <ScalarProperty Name="Id" ColumnName="Devise_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Devise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationFinancement" TypeName="Model.ImportationFinancement" StoreEntitySet="ImportationFinancement">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationFinancement_Financement_Id" />
+      </EndProperty>
+      <EndProperty Name="Financement">
+        <ScalarProperty Name="Id" ColumnName="Financements_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationDestinationProduit" TypeName="Model.ImportationDestinationProduit" StoreEntitySet="Importations">
+      <EndProperty Name="DestinationProduit">
+        <ScalarProperty Name="Id" ColumnName="DestinationProduit_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="DestinationProduit_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WilayaRecetteImpots" TypeName="Model.WilayaRecetteImpots" StoreEntitySet="RecetteImpots">
+      <EndProperty Name="Wilaya">
+        <ScalarProperty Name="Id" ColumnName="Wilaya_Id" />
+      </EndProperty>
+      <EndProperty Name="RecetteImpots">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Wilaya_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationRecetteImpots" TypeName="Model.ImportationRecetteImpots" StoreEntitySet="Importations">
+      <EndProperty Name="RecetteImpots">
+        <ScalarProperty Name="Id" ColumnName="RecetteImpots_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="RecetteImpots_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureDefinitiveModeReglement" TypeName="Model.FactureDefinitiveModeReglement" StoreEntitySet="Factures_FactureDefinitive">
+      <EndProperty Name="ModeReglement">
+        <ScalarProperty Name="Id" ColumnName="ModeReglement_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ModeReglement_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureDefinitiveDevise" TypeName="Model.FactureDefinitiveDevise" StoreEntitySet="Factures_FactureDefinitive">
+      <EndProperty Name="Devise">
+        <ScalarProperty Name="Id" ColumnName="Devise_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Devise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationImportateur" TypeName="Model.ImportationImportateur" StoreEntitySet="Importations">
+      <EndProperty Name="Importateur">
+        <ScalarProperty Name="Id" ColumnName="Importateur_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Importateur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationFournisseur" TypeName="Model.ImportationFournisseur" StoreEntitySet="Importations">
+      <EndProperty Name="Fournisseur">
+        <ScalarProperty Name="Id" ColumnName="Fournisseur_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Fournisseur_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationTransit" TypeName="Model.ImportationTransit" StoreEntitySet="Importations">
+      <EndProperty Name="Transit">
+        <ScalarProperty Name="Id" ColumnName="Transit_Id" />
+      </EndProperty>
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Transit_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseMotifFacture" TypeName="Model.EntrepriseMotifFacture" StoreEntitySet="MotifFactures">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="EntrepriseMotifFacture_MotifFacture_Id" />
+      </EndProperty>
+      <EndProperty Name="MotifFacture">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EntrepriseMotifFacture_MotifFacture_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureFraisEntreprise" TypeName="Model.FactureFraisEntreprise" StoreEntitySet="Factures_FactureFrais">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Beneficiaire_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureFrais">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Beneficiaire_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationArrivage" TypeName="Model.ImportationArrivage" StoreEntitySet="LigneCommandes">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationArrivage_LigneCommande_Id" />
+      </EndProperty>
+      <EndProperty Name="LigneCommande">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ImportationArrivage_LigneCommande_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DocumentFichier" TypeName="Model.DocumentFichier" StoreEntitySet="Fichiers">
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="DocumentFichier_Fichier_Id" />
+      </EndProperty>
+      <EndProperty Name="Fichier">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="DocumentFichier_Fichier_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationCertificatDeConformite" TypeName="Model.ImportationCertificatDeConformite" StoreEntitySet="Documents">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationCertificatDeConformite_Document_Id" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ImportationCertificatDeConformite_Document_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CertificatDOrigine" TypeName="Model.CertificatDOrigine" StoreEntitySet="Documents">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="CertificatDOrigine_Document_Id" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="CertificatDOrigine_Document_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationListeDeColissage" TypeName="Model.ImportationListeDeColissage" StoreEntitySet="Documents">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationListeDeColissage_Document_Id" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ImportationListeDeColissage_Document_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ImportationConnaissement" TypeName="Model.ImportationConnaissement" StoreEntitySet="Documents">
+      <EndProperty Name="Importation">
+        <ScalarProperty Name="Id" ColumnName="ImportationConnaissement_Document_Id" />
+      </EndProperty>
+      <EndProperty Name="Document">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ImportationConnaissement_Document_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseCompteBancaire" TypeName="Model.EntrepriseCompteBancaire" StoreEntitySet="ComptesBancaires">
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Entreprise_Id" />
+      </EndProperty>
+      <EndProperty Name="CompteBancaire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Entreprise_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BanqueCompteBancaire" TypeName="Model.BanqueCompteBancaire" StoreEntitySet="ComptesBancaires">
+      <EndProperty Name="Banque">
+        <ScalarProperty Name="Id" ColumnName="Banque_Id" />
+      </EndProperty>
+      <EndProperty Name="CompteBancaire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Banque_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseGerant" TypeName="Model.EntrepriseGerant" StoreEntitySet="Entreprises">
+      <EndProperty Name="Personne">
+        <ScalarProperty Name="Id" ColumnName="Gerant_Id" />
+      </EndProperty>
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Gerant_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonneAdresse" TypeName="Model.PersonneAdresse" StoreEntitySet="Adresses">
+      <EndProperty Name="Personne">
+        <ScalarProperty Name="Id" ColumnName="PersonneAdresse_Adresse_Id" />
+      </EndProperty>
+      <EndProperty Name="Adresse">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="PersonneAdresse_Adresse_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntrepriseTypeActivite" TypeName="Model.EntrepriseTypeActivite" StoreEntitySet="Entreprises">
+      <EndProperty Name="TypeActivite">
+        <ScalarProperty Name="Id" ColumnName="TypeActivite_Id" />
+      </EndProperty>
+      <EndProperty Name="Entreprise">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TypeActivite_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureDefinitiveIncoterm" TypeName="Model.FactureDefinitiveIncoterm" StoreEntitySet="Factures_FactureDefinitive">
+      <EndProperty Name="Incoterm">
+        <ScalarProperty Name="Id" ColumnName="Incoterm_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureDefinitive">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Incoterm_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FactureProformaIncoterm" TypeName="Model.FactureProformaIncoterm" StoreEntitySet="Factures_FactureProforma">
+      <EndProperty Name="Incoterm">
+        <ScalarProperty Name="Id" ColumnName="Incoterm_Id" />
+      </EndProperty>
+      <EndProperty Name="FactureProforma">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Incoterm_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AttributPereFils" TypeName="Model.AttributPereFils" StoreEntitySet="Attributs">
+      <EndProperty Name="Attribut">
+        <ScalarProperty Name="Id" ColumnName="Pere_Id" />
+      </EndProperty>
+      <EndProperty Name="Attribut1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Pere_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ValeurPereFils" TypeName="Model.ValeurPereFils" StoreEntitySet="Valeurs">
+      <EndProperty Name="Valeur">
+        <ScalarProperty Name="Id" ColumnName="Pere_Id" />
+      </EndProperty>
+      <EndProperty Name="Valeur1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Pere_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ArticlePackaging" TypeName="Model.ArticlePackaging" StoreEntitySet="Articles">
+      <EndProperty Name="Packaging">
+        <ScalarProperty Name="Id" ColumnName="Packaging_Id" />
+      </EndProperty>
+      <EndProperty Name="Article">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Packaging_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Packagings">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Packaging)">
+        <MappingFragment StoreEntitySet="Packagings">
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

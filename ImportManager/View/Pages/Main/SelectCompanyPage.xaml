@@ -1,0 +1,41 @@
+﻿<Window x:Class="ImportManager.View.SelectCompanyPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImportManager.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="{StaticResource PrimaryHueMidForegroundBrush}">
+    <StackPanel VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+        <Button Content="{StaticResource PlusIcon}" 
+                Style="{StaticResource IconButton}" 
+                HorizontalAlignment="Right"
+                Click="Add_Importateur"
+                />
+        <ListView x:Name="Importateurs">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Height="Auto" Style="{StaticResource IconButton}" Click="Select_Importateur" Margin="0" Padding="10">
+                        <StackPanel>
+                            <Label Content="{StaticResource SettingsIcon}" Height="100"
+                               HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Denomination}"
+                                   HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Window>

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="ImportManager.View.FicheAttribut"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:MaterialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d" 
+             d:DesignWidth="800">
+    <StackPanel>
+        <TextBox MaterialDesign:HintAssist.Hint="Désignation FR"
+                 Name="designation"
+                 Text="{Binding DesignationFR}"/>
+        <TextBox MaterialDesign:HintAssist.Hint="Désignation AR"
+                 Text="{Binding DesignationAR}"/>
+        <TextBox MaterialDesign:HintAssist.Hint="Désignation EN"
+                 Text="{Binding DesignationEN}"/>
+        <ComboBox x:Name="pere" 
+                  MaterialDesign:HintAssist.Hint="Dépendance"
+                  ItemsSource="{Binding Peres}"
+                  SelectedItem="{Binding Pere}"
+                  DisplayMemberPath="DesignationFR"/>
+        <ComboBox MaterialDesign:HintAssist.Hint="{Binding ElementName=pere,Path=SelectedItem.DesignationFR,StringFormat='Choisir une {0}'}"
+                  ItemsSource="{Binding ValeursPere}"
+                  SelectedItem="{Binding SelectedValeurPere}"
+                  DisplayMemberPath="ValeurFR"
+                  Visibility="{Binding IsPereSelected,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="{StaticResource CloseIcon}"
+                    Command="{Binding DeleteValeur}"
+                    Style="{StaticResource IconButton}"/>
+            <Button Content="{StaticResource PlusIcon}"
+                    Command="{Binding AddValeur}"
+                    Style="{StaticResource IconButton}"/>
+        </StackPanel>
+        <DataGrid AutoGenerateColumns="False"
+                  HorizontalAlignment="Center"
+                  ColumnWidth="120"
+                  ItemsSource="{Binding Valeurs}"
+                  SelectedItem="{Binding SelectedValeur}"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°"/>
+                <DataGridTextColumn Binding="{Binding ValeurFR}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{Binding ElementName=designation,Path=Text,StringFormat={}{0} FR}"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ValeurEN}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{Binding ElementName=designation,Path=Text,StringFormat={}{0} EN}"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ValeurAR}">
+                    <DataGridTextColumn.Header>
+                        <TextBlock Text="{Binding ElementName=designation,Path=Text,StringFormat={}{0} AR}"/>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>
